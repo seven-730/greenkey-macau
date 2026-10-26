@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>实施计划与影响 · 里程碑、成本与成功定义 | 绿钥 GreenKey</title>
+<meta name="description" content="绿钥的分阶段实施计划、所需资源、风险应对、影响指标、成本估算与成功定义。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="绿钥 GreenKey">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:locale:alternate" content="en">
+<meta property="og:title" content="实施计划与影响 · 里程碑、成本与成功定义 | 绿钥 GreenKey">
+<meta property="og:description" content="绿钥的分阶段实施计划、所需资源、风险应对、影响指标、成本估算与成功定义。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05090b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070d10'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='%232be8a6' stroke-width='2.4'/%3E%3Cpath d='M17 17l9 9M22 22l-2.4 2.4M25 25l-2.4 2.4' stroke='%232be8a6' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/boot.css">
+<noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+<script>(function () {
+  var d = document.documentElement;
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.get("lang") === "en") localStorage.setItem("gk_lang", "en");
+    if (p.get("lang") === "zh") localStorage.setItem("gk_lang", "zh");
+    if (localStorage.getItem("gk_lang") === "en") {
+      d.classList.add("i18n-pending");
+      setTimeout(function () { d.classList.remove("i18n-pending"); }, 3000);
+    }
+  } catch (e) {}
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get("boot") === "0") return;
+    var seen = false;
+    try { seen = sessionStorage.getItem("gk_boot") === "1"; } catch (e) {}
+    if (seen && q.get("boot") !== "1") return;
+    d.classList.add("boot");
+    setTimeout(function () { if (!window.__GK_BOOT_DONE__) d.classList.remove("boot"); }, 3500);
+  } catch (e) {}
+})();</script>
+<script src="assets/lang/en-1.js" defer></script>
+<script src="assets/lang/en-2.js" defer></script>
+<script src="assets/lang/en-3.js" defer></script>
+<script src="assets/lang/en-4.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/boot.js" defer></script>
+</head>
+<body>
+<div class="progress"><div class="progress__bar"></div></div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html" aria-label="绿钥 GreenKey 首页">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+        <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+        <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="主导航">
+      <a href="index.html">摘要</a>
+      <a href="problem.html">问题</a>
+      <a href="platform.html">方案</a>
+      <a href="demo.html">演示</a>
+      <a href="impact.html" aria-current="page">实施</a>
+      <a href="business.html">扩展</a>
+      <a href="methodology.html">方法学</a>
+    </nav>
+    <a class="btn btn--sm nav__cta" href="demo.html">试算我的门店 <span class="arw">→</span></a>
+    <button class="nav__toggle" aria-label="展开菜单" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">摘要</a> <span>/</span> <span>实施与影响</span></div>
+    <div class="grid g-7-5" style="align-items:end">
+      <div>
+        <span class="eyebrow">实施 · 05</span>
+        <h1 class="h1" style="max-width:20ch">先做 30 家，<br>再谈一座城。</h1>
+      </div>
+      <div>
+        <p class="lede">
+          分阶段部署：受控试点 → 方法学被合作伙伴验证 → 逐步放大。每一阶段的交付物都可被外部检查，
+          任何一步失败都不必推翻前面的工作。
+        </p>
+        <div class="page-head__meta">
+          <span>试点 <b>20–30 家</b></span>
+          <span>24 个月目标 <b>300+ 家</b></span>
+          <span>参与率目标 <b>≥60%</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5.1 里程碑 -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">5.1 — 部署步骤</span>
+      <h2 class="h2">表 2 · 实施里程碑</h2>
+    </div>
+
+    <div class="flow" data-reveal>
+      <div class="flow__item">
+        <span class="flow__n">第 0 阶段 · 0–3 月</span>
+        <div class="flow__t">范围界定</div>
+        <div class="flow__d">梳理利益相关方；签署数据访问协议；与酒店协会、餐饮商会及公用事业公司建立合作；正式确立验证方法学。</div>
+      </div>
+      <div class="flow__item">
+        <span class="flow__n">第一阶段 · 3–6 月</span>
+        <div class="flow__t">受控试点</div>
+        <div class="flow__d">向 20–30 家微型及小型企业部署计量仪表；采集入住率、运营与能耗数据；构建并校准双轨基线模型。</div>
+      </div>
+      <div class="flow__item">
+        <span class="flow__n">第二阶段 · 6–12 月</span>
+        <div class="flow__t">认证与融资</div>
+        <div class="flow__d">运行验证框架；对接 1–2 家银行；签发首批运营性减排证书；促成首批绿色贷款落地。</div>
+      </div>
+      <div class="flow__item">
+        <span class="flow__n">第三阶段 · 12–24 月</span>
+        <div class="flow__t">规模化推广</div>
+        <div class="flow__d">拓展至 300 家以上中小微；对接政府补贴渠道；制定区域复制与跨行业方案。</div>
+      </div>
+    </div>
+
+    <div class="grid g-7-5" style="margin-top:clamp(32px,4vw,56px);gap:clamp(24px,4vw,56px);align-items:start" data-reveal>
+      <div>
+        <h3 class="h3" style="font-size:20px;margin-bottom:14px">5.2 — 所需资源</h3>
+        <div class="grid g2" style="gap:14px">
+          <div class="card">
+            <div class="card__idx">技术</div>
+            <h4 class="h4">三类角色</h4>
+            <p class="small muted" style="margin-top:6px">负责基线建模的 AI/ML 工程师、负责计量设备集成的数据工程师、符合碳核算规范的验证引擎。</p>
+          </div>
+          <div class="card">
+            <div class="card__idx">合作</div>
+            <h4 class="h4">四个伙伴</h4>
+            <p class="small muted" style="margin-top:6px">酒店及餐饮行业协会（会员资源）、电力公司（计量与计费数据）、1–2 家银行（授信）、相关政府部门（补贴合规）。</p>
+          </div>
+          <div class="card">
+            <div class="card__idx">专业</div>
+            <h4 class="h4">两门硬能力</h4>
+            <p class="small muted" style="margin-top:6px">碳核查资质与绿色金融产品设计——这是让证书被采信的前提，不能外包给通用软件团队。</p>
+          </div>
+          <div class="card">
+            <div class="card__idx">政策</div>
+            <h4 class="h4">一条对齐路径</h4>
+            <p class="small muted" style="margin-top:6px">尽早与政府部门对接，确保认证标准与现行贴息政策的材料要求精准匹配。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card card--mint">
+        <div class="tiny uc muted">5.4 — 利益相关者测试</div>
+        <ol style="margin:14px 0 0;padding-left:18px;font-size:13px;line-height:1.8;color:var(--ink-2)">
+          <li>向参与的酒店与餐饮业主展示各自的减排证书，征询其对<strong>量化结果公平性</strong>与<strong>可操作性</strong>的评估。</li>
+          <li>与合作银行共同测试证书的<strong>接受度</strong>：是否足以支撑授信决策，还缺什么材料。</li>
+          <li>基于可用性、基线公平性与贷款决策时效性的结构化反馈，在全面推广前迭代。</li>
+        </ol>
+        <p class="note" style="margin-top:14px">我们不假设自己知道业主怎么想——所以把"被质疑"写进了试点流程。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5.3 风险 -->
+<section class="section" style="background:var(--paper-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">5.3 — 风险与应对</span>
+      <h2 class="h2">五件可能让项目失败的事。</h2>
+    </div>
+    <div class="table-wrap" data-reveal>
+      <table class="tbl">
+        <thead><tr><th>风险</th><th>为什么严重</th><th>应对</th></tr></thead>
+        <tbody>
+          <tr><td><strong>可用数据有限</strong></td><td>部分小微企业没有分项计量，账单周期不规则</td><td>分阶段部署计量设备；与公用事业公司建立数据合作；数据不足时降级置信等级</td></tr>
+          <tr><td><strong>数据隐私</strong></td><td>入住率、房态与员工排班属于敏感经营信息</td><td>明示同意、匿名化、最小化处理；只处理企业级聚合数据</td></tr>
+          <tr><td><strong>模型准确性与操纵</strong></td><td>企业可能刻意做高基线，或把低入住率当成减排</td><td>按入住率与使用强度校正的基准值；只用未干预窗口训练；独立审计</td></tr>
+          <tr><td><strong>采纳意愿与信任</strong></td><td>小经营者时间有限，且没有垫资能力</td><td>简化接入流程；首年按效果付费；行业协会背书</td></tr>
+          <tr><td><strong>政策错配</strong></td><td>认证标准与补贴材料要求不一致，证书用不上</td><td>第 0 阶段即与政府部门对接，把材料要求写进证书模板</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 5.5 成本 -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">5.5 — 财务分析</span>
+      <h2 class="h2">表 3 · 预估实施成本</h2>
+      <p class="lede">平台具有高固定成本、低边际成本的结构，因此单位成本随参与企业数量显著下降。</p>
+    </div>
+    <div class="table-wrap" data-reveal>
+      <table class="tbl">
+        <thead><tr><th>成本项目</th><th>类型</th><th>估算值（MOP）</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td><strong>平台开发</strong><br><span class="tiny muted">AI 模型、仪表板、验证引擎</span></td><td>一次性</td><td>2,000,000 – 3,500,000</td><td>含双轨基线模型、凭证签发与银行接口</td></tr>
+          <tr><td><strong>试点部署</strong><br><span class="tiny muted">20–30 家中小微</span></td><td>一次性</td><td>500,000 – 1,200,000</td><td>计量设备、传感器及安装</td></tr>
+          <tr><td><strong>年度运营与维护</strong></td><td>年度</td><td>800,000 – 1,500,000</td><td>云资源、数据、团队</td></tr>
+          <tr><td><strong>验证与第三方审计</strong></td><td>年度</td><td>150,000 – 300,000</td><td>每 100 家微型、小型及中型企业</td></tr>
+          <tr style="background:var(--mint-3)">
+            <td><strong>单店年化成本（300 家规模时）</strong></td><td>—</td><td><strong>≈ MOP 10,100</strong></td><td>含开发摊销与年运营；规模扩大后继续下降</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:16px">
+      来源：基于可比平台部署的团队估算值，将在试点成本核算后修正。单店年化成本按"开发（中值 275 万 ÷ 3 年摊销）+ 试点部署（中值 85 万 ÷ 3 年摊销）+ 年运营（中值 115 万）+ 审计（300 家时约 67.5 万）÷ 300 家"计算，约相当于单店年节省电费（MOP 4 万量级）的四分之一。
+    </p>
+  </div>
+</section>
+
+<!-- 6 影响 -->
+<section class="section" style="border-top:1px solid var(--line)" id="impact">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">06 — 影响</span>
+      <h2 class="h2">改变的不是数字，<br>是"什么算绿色"。</h2>
+    </div>
+
+    <div class="grid g4" data-reveal>
+      <div class="card card--tint">
+        <div class="tiny uc muted">企业主</div>
+        <h4 class="h4" style="margin-top:8px">从省钱到有资产</h4>
+        <p class="small muted" style="margin-top:6px">低碳经营第一次能换来优惠信贷与财政补贴。</p>
+      </div>
+      <div class="card card--tint">
+        <div class="tiny uc muted">银行</div>
+        <h4 class="h4" style="margin-top:8px">可靠且低风险的绿色资产</h4>
+        <p class="small muted" style="margin-top:6px">标准化、可核验、可贷后监测的小微绿色资产池。</p>
+      </div>
+      <div class="card card--tint">
+        <div class="tiny uc muted">政府</div>
+        <h4 class="h4" style="margin-top:8px">可验证的补贴分配依据</h4>
+        <p class="small muted" style="margin-top:6px">按实际减排量筛选项目，而不是按材料厚度。</p>
+      </div>
+      <div class="card card--tint">
+        <div class="tiny uc muted">环境</div>
+        <h4 class="h4" style="margin-top:8px">被量化、被持续跟踪</h4>
+        <p class="small muted" style="margin-top:6px">运营性减排从"看不见"变成可统计、可入账的存量。</p>
+      </div>
+    </div>
+
+    <h3 class="h3" style="margin-top:clamp(40px,5vw,64px);margin-bottom:16px" data-reveal>表 4 · 影响指标</h3>
+    <div class="table-wrap" data-reveal>
+      <table class="tbl">
+        <thead><tr><th>指标</th><th>定义 / 方法</th><th>目标</th></tr></thead>
+        <tbody>
+          <tr><td><strong>涵盖的中小企业</strong></td><td>获认证企业数量</td><td>第 1 年 30 例 → 第 2 年 300+ 例</td></tr>
+          <tr><td><strong>运营性减排获认可</strong></td><td>每企业每年 tCO₂e，相对 BAU 基准</td><td>5–30 tCO₂e / 年（按业态）</td></tr>
+          <tr><td><strong>节能量</strong></td><td>相对 BAU 的 kWh 减排量</td><td>占工作日总能量的 10–30%</td></tr>
+          <tr><td><strong>绿色金融释放潜力</strong></td><td>已获取的绿色贷款 / 补贴金额</td><td>试点阶段释放 MOP 1,200 万授信</td></tr>
+          <tr><td><strong>参与率与留存率</strong></td><td>接触企业中参与及持续参与的比例</td><td>试点参与率 ≥ 60%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid g3" style="margin-top:clamp(32px,4vw,56px)" data-reveal>
+      <div>
+        <span class="eyebrow" style="margin-bottom:10px">6.3 · 数据与验证</span>
+        <p class="small muted">影响数据来自智能电表与账单（能源）、入住与运营记录（活动量）、AI 基线引擎（反事实）。验证由基准方法的独立审计与部分凭证的抽样复核完成。</p>
+      </div>
+      <div>
+        <span class="eyebrow" style="margin-bottom:10px">6.5 · 公平与包容</span>
+        <p class="small muted">专门服务被大型项目排除在外的规模最小、最易被边缘化的企业。准入机制为时间与技术人员有限的小业主设计：接入成本低、流程短。</p>
+      </div>
+      <div>
+        <span class="eyebrow" style="margin-bottom:10px">6.6 · 间接效益</span>
+        <p class="small muted">提升小经营者的能源意识与运营效率、降低运营成本，并在旅游经济环境下增强本地市场的竞争力。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6.6 潜在危害 -->
+<section class="section band">
+  <div class="wrap">
+    <div class="grid g-5-7" style="gap:clamp(28px,4vw,64px);align-items:start">
+      <div data-reveal>
+        <span class="eyebrow">6.6 — 潜在危害</span>
+        <p class="quote" style="font-size:clamp(22px,2.6vw,32px)">如果按入住率给分，<br>就等于<em>奖励空房</em>。</p>
+      </div>
+      <div data-reveal data-delay="1">
+        <p class="lede" style="margin-bottom:20px">
+          这是这套方法学最容易被设计坏的地方：若基准仅基于低入住率设定，企业可以通过维持低入住率来"制造"减排。
+          我们不接受这个激励，因为那会让一个本来关于效率的工具，变成关于空置的工具。
+        </p>
+        <div class="callout callout--dark" style="margin-bottom:20px">
+          <strong>解法：按单位活动量计算降幅。</strong><br>
+          所有核证都以"每间客房入住天数"或"每客次"的能耗为分子，而不是以总用电量为分子。
+          入住率下降只会让分母变小，不会让强度改善变好——评分对"客人少"完全中性。
+        </div>
+        <div class="grid g2" style="gap:18px">
+          <div class="mini-kpi">
+            <div><div class="mini-kpi__l">工作日入住率 75%</div><div class="mini-kpi__n">8.8%</div></div>
+            <div><div class="mini-kpi__l">工作日入住率 38%</div><div class="mini-kpi__n">9.1%</div></div>
+            <div><div class="mini-kpi__l">工作日入住率 15%</div><div class="mini-kpi__n">9.4%</div></div>
+          </div>
+          <p class="small" style="color:rgba(233,245,239,.7);margin:0">
+            同一间酒店、同一组措施，入住率从 75% 掉到 15%，强度改善率只在 8.8–9.4% 之间微动。
+            这就是"低入住率换绿色评分"这条路被堵死的地方。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 成功定义 -->
+<section class="section">
+  <div class="wrap">
+    <div class="grid g-5-7" style="gap:clamp(28px,4vw,64px);align-items:start">
+      <div data-reveal>
+        <span class="eyebrow">6.4 — 成功定义</span>
+        <h2 class="h2" style="font-size:clamp(24px,2.8vw,36px)">什么情况下，<br>我们算做成了？</h2>
+        <p class="lede" style="margin-top:16px;font-size:15px">
+          不是"平台上线了"，也不是"签了多少家"。是下面四件事同时发生。
+        </p>
+      </div>
+      <div class="tl" data-reveal data-delay="1">
+        <div class="tl__item tl__item--now">
+          <span class="tl__when">条件 01</span>
+          <p class="small" style="margin:6px 0 0">两年内，至少 <strong>300 家</strong>微型、小型及中型企业完成认证。</p>
+        </div>
+        <div class="tl__item">
+          <span class="tl__when">条件 02</span>
+          <p class="small" style="margin:6px 0 0">其中相当比例的企业，获得了<strong>此前无法获得的绿色信贷或补贴</strong>。</p>
+        </div>
+        <div class="tl__item">
+          <span class="tl__when">条件 03</span>
+          <p class="small" style="margin:6px 0 0">银行与政府<strong>正式将运营性减排凭证认可为可信的绿色证据</strong>，写进产品条款或补贴指引。</p>
+        </div>
+        <div class="tl__item">
+          <span class="tl__when">条件 04</span>
+          <p class="small" style="margin:6px 0 0">在 <strong>6–12 个月</strong>内验证"澳门模式"的可行性：方法学可复算、银行可采信、企业愿续约。</p>
+        </div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:26px">
+      第 3 条是关键：凭证只有被制度吸收，才会从"一个平台的服务"变成"一套基础设施"。在此之前，我们只是完成了技术验证。
+    </p>
+  </div>
+</section>
+
+<section class="section band section--tight">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
+    <div>
+      <span class="eyebrow">下一节</span>
+      <h2 class="h2" style="margin-bottom:10px">一座城做完，这套方法还能去哪？</h2>
+      <p class="lede" style="max-width:54ch">方法论是可移植的：里斯本、槟城、曼谷——所有被节假日与工作日撕开的旅游城市。</p>
+    </div>
+    <a class="btn btn--mint btn--lg" href="business.html">可扩展性 <span class="arw">→</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+          <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+          <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+      </a>
+      <p class="footer__desc">为澳门持牌小型酒店、经济型酒店、青年旅舍与小餐饮设计的运营级碳效核算与绿色金融平台。</p>
+    </div>
+    <div>
+      <h5>方案</h5>
+      <ul>
+        <li><a href="platform.html">四层架构</a></li>
+        <li><a href="demo.html">交互演示</a></li>
+        <li><a href="methodology.html">方法学 GKM-01</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>论证</h5>
+      <ul>
+        <li><a href="problem.html">问题与市场</a></li>
+        <li><a href="impact.html">实施与影响</a></li>
+        <li><a href="business.html">可扩展性</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>联系</h5>
+      <ul>
+        <li><a href="mailto:hello@greenkey.mo">hello@greenkey.mo</a></li>
+        <li><span class="small muted">澳门南湾大马路 1 号</span></li>
+        <li><span class="small muted">概念提案 · 非实际运营主体</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <span>© <span data-year>2026</span> 绿钥 GreenKey · 商业案例竞赛概念提案</span>
+    <span>本站数据基于公开参数与自建模型；示例企业为虚构，用于方法演示。</span>
+  </div>
+</footer>
+
+<script src="assets/model.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

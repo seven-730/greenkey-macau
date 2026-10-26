@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>绿钥 GreenKey · 把工作日省下的电，变成可授信的绿色资产</title>
+<meta name="description" content="绿钥是一套为澳门持牌小型酒店、经济型酒店、青年旅舍与小餐饮设计的 AI 碳效核算平台：用工作日/节假日双轨基线，把运营性减排核证成银行与政府采信的凭证。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="绿钥 GreenKey">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:locale:alternate" content="en">
+<meta property="og:title" content="绿钥 GreenKey · 把工作日省下的电，变成可授信的绿色资产">
+<meta property="og:description" content="绿钥是一套为澳门持牌小型酒店、经济型酒店、青年旅舍与小餐饮设计的 AI 碳效核算平台：用工作日/节假日双轨基线，把运营性减排核证成银行与政府采信的凭证。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05090b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070d10'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='%232be8a6' stroke-width='2.4'/%3E%3Cpath d='M17 17l9 9M22 22l-2.4 2.4M25 25l-2.4 2.4' stroke='%232be8a6' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/boot.css">
+<noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+<script>(function () {
+  var d = document.documentElement;
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.get("lang") === "en") localStorage.setItem("gk_lang", "en");
+    if (p.get("lang") === "zh") localStorage.setItem("gk_lang", "zh");
+    if (localStorage.getItem("gk_lang") === "en") {
+      d.classList.add("i18n-pending");
+      setTimeout(function () { d.classList.remove("i18n-pending"); }, 3000);
+    }
+  } catch (e) {}
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get("boot") === "0") return;
+    var seen = false;
+    try { seen = sessionStorage.getItem("gk_boot") === "1"; } catch (e) {}
+    if (seen && q.get("boot") !== "1") return;
+    d.classList.add("boot");
+    setTimeout(function () { if (!window.__GK_BOOT_DONE__) d.classList.remove("boot"); }, 3500);
+  } catch (e) {}
+})();</script>
+<script src="assets/lang/en-1.js" defer></script>
+<script src="assets/lang/en-2.js" defer></script>
+<script src="assets/lang/en-3.js" defer></script>
+<script src="assets/lang/en-4.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/boot.js" defer></script>
+</head>
+<body>
+<div class="progress"><div class="progress__bar"></div></div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html" aria-label="绿钥 GreenKey 首页">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+        <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+        <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="主导航">
+      <a href="index.html" aria-current="page">摘要</a>
+      <a href="problem.html">问题</a>
+      <a href="platform.html">方案</a>
+      <a href="demo.html">演示</a>
+      <a href="impact.html">实施</a>
+      <a href="business.html">扩展</a>
+      <a href="methodology.html">方法学</a>
+    </nav>
+    <a class="btn btn--sm nav__cta" href="demo.html">试算我的门店 <span class="arw">→</span></a>
+    <button class="nav__toggle" aria-label="展开菜单" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__kicker">
+      <span class="tag tag--mint"><span class="dot"></span> 澳门 · 文化旅游 · 中小微</span>
+      <span class="tag tag--outline">可持续能源 / 能源消耗</span>
+      <span class="tag tag--gold">未被核算的碳减排潜力</span>
+    </div>
+    <h1 class="h1" style="max-width:20ch">绿色不该由发票定义，<br>而该由<em>用电曲线</em>定义。</h1>
+    <p class="hero__sub">
+      澳门有 1,700–2,200 家持牌小型酒店与小餐饮。它们在普通工作日关闭楼层、缩短营业、降低负荷——
+      减排真实发生，却因为没有一张设备发票，被绿色信贷与贴息计划挡在门外。绿钥用 AI 双基线，把这部分减排核证成可授信的资产。
+    </p>
+    <div class="hero__cta">
+      <a class="btn btn--lg" href="demo.html">进入交互演示 <span class="arw">→</span></a>
+      <a class="btn btn--ghost btn--lg" href="#summary">阅读执行摘要</a>
+    </div>
+    <div class="hero__facts">
+      <div class="hero__fact"><b class="num" data-en="34.93<span style=&quot;font-size:15px&quot;> M</span>">3,493<span style="font-size:15px"> 万</span></b><span>2024 年访澳旅客（同比 +23.8%）</span></div>
+      <div class="hero__fact"><b class="num">1,700–2,200</b><span>被"发票门槛"排除在绿色金融之外</span></div>
+      <div class="hero__fact"><b class="num" data-en="MOP 5<span style=&quot;font-size:15px&quot;> M</span>"><span style="font-size:15px">MOP </span>500<span style="font-size:15px"> 万</span></b><span>现行贴息上限，却只认资本开支</span></div>
+    </div>
+
+    <!-- 证据面板 -->
+    <div class="hero-panel" data-reveal>
+      <div class="hero-panel__head">
+        <span class="hero-panel__title">一间 40 房精品酒店 · 近 28 个计费日</span>
+        <span class="hero-panel__meta">
+          <span>工作日入住率 <b>38%</b></span>
+          <span>历史常态 <b>52%</b></span>
+          <span>2026-09-21 → 10-18</span>
+        </span>
+      </div>
+      <svg id="heroChart" height="300" role="img" aria-label="28 日三条基线对比：历史常态、校正 BAU、实测"></svg>
+      <div class="figure-set" style="margin-top:18px">
+        <div>
+          <div class="figure-set__n" style="color:var(--clay)">2,126<small>kWh</small></div>
+          <div class="figure-set__l">活动量效应 · <b>不计入</b><br>入住率低于常态带来的用电下降</div>
+        </div>
+        <div>
+          <div class="figure-set__n" style="color:var(--emerald)">2,827<small>kWh</small></div>
+          <div class="figure-set__l">强度效应 · <b>可核证</b><br>同样住这么多人，少用的电</div>
+        </div>
+        <div>
+          <div class="figure-set__n">−9.1<small>%</small></div>
+          <div class="figure-set__l">单位活动量强度改善<br>43.5 → 39.5 kWh / 间夜</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span class="ticker__item">澳门 22°11′N 113°32′E <i></i> <b>持牌酒店 · 经济型酒店 · 青年旅舍 · 小餐饮</b></span>
+    <span class="ticker__item">工作日入住率 <b>常低于 40%</b> <i></i> 公众假期接近满房</span>
+    <span class="ticker__item">单店年可核证减排 <b>5–30 tCO₂e</b></span>
+    <span class="ticker__item">工作日节能 <b>10–30%</b> <i></i> 但从未被计入任何绿色资产</span>
+    <span class="ticker__item">贴息上限 <b>MOP 500 万 / 3 年</b> <i></i> 前提是一叠发票</span>
+    <span class="ticker__item">只认强度 <b>不认低入住率</b></span>
+  </div>
+</div>
+
+<!-- ================= 01 执行摘要 ================= -->
+<section class="section" id="summary">
+  <div class="wrap">
+    <div class="grid g-5-7" style="gap:clamp(28px,4vw,72px);align-items:start">
+      <div data-reveal>
+        <span class="eyebrow">01 — 执行摘要</span>
+        <h2 class="h2">一门关于"证明自己省了电"的生意。</h2>
+        <div style="margin-top:24px">
+          <div class="figure-set" style="border-top:0;grid-template-columns:1fr">
+            <div style="border-right:0;padding-top:0">
+              <div class="figure-set__n">18.9<span style="font-size:16px">%</span></div>
+              <div class="figure-set__l">六项运营措施叠加后，工作日用电相对历史常态的降幅</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-reveal data-delay="1">
+        <p class="lede" style="margin-bottom:20px">
+          澳门的经济高度依赖文旅。2024 年接待旅客 3,493 万人次，同比增长 23.8%，平均逗留 1.2 天。
+          支撑这套体系的是大量持牌小型酒店、经济型酒店、青年旅舍与小餐饮——它们的能耗不随"淡旺季"变化，而是随<strong>节假日与普通工作日</strong>剧烈波动。
+        </p>
+        <p class="lede" style="margin-bottom:20px">
+          在普通工作日，这些企业确实降低了能耗：入住率下降、缩短营业时长、关闭部分楼层、低负荷运行设备。
+          这形成了可观的、却长期未被核算的减排潜力。但澳门的绿色信贷与补贴机制只认可<strong>以发票、合同与工程文件为凭</strong>的资本密集型改造——
+          运营行为产生的减排，没有入口。
+        </p>
+        <p class="lede">
+          绿钥用智能电表与运营数据构建"节假日—工作日"双轨基线，把日常运营节能与企业主动改造分开，
+          量化、核证并签发可验证的减排凭证，再折算为绿色信用评分，接入银行信贷与政府贴息。
+          <strong>它衡量的不是花了多少钱，而是省了多少电。</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 问题 ================= -->
+<section class="section band" id="problem">
+  <div class="wrap">
+    <div class="grid g-5-7" style="gap:clamp(28px,4vw,64px);align-items:center">
+      <div data-reveal>
+        <span class="eyebrow">02 — 核心问题</span>
+        <p class="quote">绿色金融衡量的<br>是资本投入，<br>不是<em>碳</em>。</p>
+      </div>
+      <div data-reveal data-delay="1">
+        <p class="lede" style="margin-bottom:28px">
+          现行框架要求申请人证明"我买了什么设备"，而不是"我减少了多少排放"。这造成一个结构性错配：
+          资金雄厚、全年满房的大型度假村缺乏改造动力；真正在运营中节能的小微企业，反而因为拿不出发票而被判为"不绿色"。
+        </p>
+        <div class="grid g3" style="gap:18px">
+          <div>
+            <div class="tiny mono" style="color:var(--mint-hi);letter-spacing:.14em">缺口 01</div>
+            <h4 class="h4" style="color:#fff;margin:8px 0 6px">只认发票</h4>
+            <p class="small" style="color:rgba(233,245,239,.72);margin:0">关一层楼、缩短两小时营业，没有合同也没有工程单，无法进入绿色项目认定。</p>
+          </div>
+          <div>
+            <div class="tiny mono" style="color:var(--mint-hi);letter-spacing:.14em">缺口 02</div>
+            <h4 class="h4" style="color:#fff;margin:8px 0 6px">没有基线</h4>
+            <p class="small" style="color:rgba(233,245,239,.72);margin:0">"省了多少"是相对"本该用多少"的差值。小微企业只有一张总账单，没有反事实。</p>
+          </div>
+          <div>
+            <div class="tiny mono" style="color:var(--mint-hi);letter-spacing:.14em">缺口 03</div>
+            <h4 class="h4" style="color:#fff;margin:8px 0 6px">无法举证</h4>
+            <p class="small" style="color:rgba(233,245,239,.72);margin:0">银行需要可核验的证据链，而企业能提供的只有自述。于是连申请这一步都走不到。</p>
+          </div>
+        </div>
+        <div style="margin-top:26px">
+          <a class="link-arw" style="color:var(--mint-hi);border-color:rgba(43,232,166,.35)" href="problem.html">看完整的用户旅程与市场规模 <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 解法 ================= -->
+<section class="section" id="solution">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">03 — 方案</span>
+      <h2 class="h2">四层，把一条用电曲线<br>变成一份可授信的凭证。</h2>
+      <p class="lede">从授权接入到融资落地，每一层都为下一层提供可审计的输入。任何一层被质疑，都能回到原始数据重新计算。</p>
+    </div>
+
+    <div class="flow" data-reveal>
+      <div class="flow__item">
+        <span class="flow__n">LAYER 01</span>
+        <div class="flow__t">数据采集</div>
+        <div class="flow__d">企业授权后接入智能电表、公用事业账单、入住率与房态、营业时长与楼层使用率。数据最小化、可随时撤回。</div>
+      </div>
+      <div class="flow__item">
+        <span class="flow__n">LAYER 02</span>
+        <div class="flow__t">AI 基线建模</div>
+        <div class="flow__d">构建"节假日—工作日"双轨 BAU 基线，并按当日实际入住率校正，把活动量变化与运营强度变化分开。</div>
+      </div>
+      <div class="flow__item">
+        <span class="flow__n">LAYER 03</span>
+        <div class="flow__t">验证与认证</div>
+        <div class="flow__d">只计入实测跌破 P10 置信下界的强度效应，签发带时间戳、可第三方复核的减排证书。</div>
+      </div>
+      <div class="flow__item">
+        <span class="flow__n">LAYER 04</span>
+        <div class="flow__t">绿色金融联动</div>
+        <div class="flow__d">凭证折算为绿信分，接入绿色贷款、利息补贴与政府认证材料，形成可监测的贷后证据链。</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px" data-reveal>
+      <a class="link-arw" href="platform.html">看四层如何运转 <span>→</span></a>
+      <a class="link-arw" href="demo.html">亲手跑一遍核算 <span>→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 算例 ================= -->
+<section class="section" style="background:var(--paper-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">04 — 一个算例</span>
+      <h2 class="h2">账单降了 15%，<br>但四成不是你的功劳。</h2>
+      <p class="lede">同一间 40 房精品酒店、同一份账单，三种算法给出三个答案。只有第三种能被银行采信。</p>
+    </div>
+
+    <div class="grid g-7-5" style="gap:clamp(24px,4vw,56px);align-items:start" data-reveal>
+      <div class="table-wrap">
+        <table class="tbl">
+          <thead><tr><th>算法</th><th>结论</th><th>问题</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>看账单环比</strong><br><span class="tiny muted">"这个月比上月少 15%"</span></td>
+              <td>无法归因</td>
+              <td>上月可能是淡季，也可能遇上台风；账面差值说明不了任何事</td>
+            </tr>
+            <tr>
+              <td><strong>用历史均值当基线</strong><br><span class="tiny muted">不做入住率校正</span></td>
+              <td>省了 <strong>4,952 kWh</strong></td>
+              <td>其中 2,126 kWh 只是客人变少——<strong>高估 75%</strong></td>
+            </tr>
+            <tr style="background:var(--mint-3)">
+              <td><strong>绿钥双基线</strong><br><span class="tiny muted">校正入住率 + P10 门槛</span></td>
+              <td><strong>2,827 kWh 可核证</strong><br><span class="tiny muted">另 2,126 kWh 记为活动量效应，不计入</span></td>
+              <td>口径保守，但第三方能复算出同一个数</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" data-reveal data-delay="1">
+        <div class="tiny uc muted">28 日账单降幅的解剖</div>
+        <div class="big-num" style="font-size:40px;margin:10px 0 4px">−15.0<span style="font-size:16px">%</span></div>
+        <div class="effect-bar" style="margin:16px 0 10px">
+          <span class="act" style="width:43%">43%</span>
+          <span class="eff" style="width:57%">57%</span>
+        </div>
+        <div class="kv">
+          <div class="kv__row"><span class="kv__k">活动量</span><span>2,126 kWh · 入住率低于常态</span></div>
+          <div class="kv__row"><span class="kv__k">强度</span><span><strong>2,827 kWh · 可核证</strong></span></div>
+          <div class="kv__row"><span class="kv__k">强度改善</span><span>43.5 → 39.5 kWh / 间夜（−9.1%）</span></div>
+        </div>
+        <p class="note" style="margin-top:16px">若不做入住率校正，这家店会被记上 4,952 kWh 的"减排"，比可核证的 2,827 kWh 高 75%——多出来的部分没有一个来自任何行动。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 影响 ================= -->
+<section class="section" id="impact">
+  <div class="wrap">
+    <div class="sec-head" data-reveal style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;max-width:none;flex-wrap:wrap">
+      <div style="max-width:62ch">
+        <span class="eyebrow">05 — 目标与影响</span>
+        <h2 class="h2">先让 30 家店拿到第一笔钱。</h2>
+        <p class="lede" style="margin-top:16px">两年内 300 家获认证，其中相当比例拿到此前无法获得的绿色信贷或贴息。</p>
+      </div>
+      <a class="link-arw" href="impact.html">实施计划与影响指标 <span>→</span></a>
+    </div>
+
+    <div class="grid g4" data-reveal>
+      <div class="stat">
+        <div class="stat__num"><span data-count="300">300</span><small>家</small></div>
+        <div class="stat__label">24 个月内完成认证的中小微企业</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="5">5</span>–30<small>t</small></div>
+        <div class="stat__label">单店每年可核证减排量（按业态）</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="10">10</span>–30<small>%</small></div>
+        <div class="stat__label">工作日相对 BAU 的节能率区间</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num"><span data-count="60">60</span><small>%</small></div>
+        <div class="stat__label">试点阶段的目标参与率</div>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:clamp(32px,4vw,56px)" data-reveal>
+      <div class="card card--tint">
+        <div class="tiny uc muted">30 家试点</div>
+        <div class="big-num" style="font-size:32px;margin:8px 0 4px">790<span style="font-size:14px"> MWh</span></div>
+        <p class="tiny muted">年可核证减排 ≈ 394 tCO₂e · 释放授信 MOP 1,200 万</p>
+      </div>
+      <div class="card card--tint">
+        <div class="tiny uc muted">300 家</div>
+        <div class="big-num" style="font-size:32px;margin:8px 0 4px">7.9<span style="font-size:14px"> GWh</span></div>
+        <p class="tiny muted">年可核证减排 ≈ 3,940 tCO₂e · 释放授信 MOP 1.05 亿</p>
+      </div>
+      <div class="card card--tint">
+        <div class="tiny uc muted">2,000 家（市场容量）</div>
+        <div class="big-num" style="font-size:32px;margin:8px 0 4px">52<span style="font-size:14px"> GWh</span></div>
+        <p class="tiny muted">年可核证减排 ≈ 26,000 tCO₂e · 相当于全澳用电的约 1%</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:22px">
+      测算口径：六业态均值（单店年可核证 26,263 kWh）；电网排放因子 0.50 kgCO₂e/kWh；授信按信保放大后的额度保守取 35 万/家。详细假设见<a href="methodology.html" style="text-decoration:underline;text-underline-offset:3px">方法学</a>。
+    </p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section band section--tight">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
+    <div>
+      <span class="eyebrow">下一步</span>
+      <h2 class="h2" style="margin-bottom:10px">拖动入住率，看哪一个数字会变。</h2>
+      <p class="lede" style="max-width:52ch">这是整份提案最容易被质疑的地方，也是我们最想让你亲手验证的地方。</p>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn btn--mint btn--lg" href="demo.html">进入交互演示 <span class="arw">→</span></a>
+      <a class="btn btn--lg" style="--bg:transparent;--bd:rgba(233,245,239,.4);--fg:#e9f5ef" href="problem.html">先看问题</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+          <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+          <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+      </a>
+      <p class="footer__desc">为澳门持牌小型酒店、经济型酒店、青年旅舍与小餐饮设计的运营级碳效核算与绿色金融平台。</p>
+    </div>
+    <div>
+      <h5>方案</h5>
+      <ul>
+        <li><a href="platform.html">四层架构</a></li>
+        <li><a href="demo.html">交互演示</a></li>
+        <li><a href="methodology.html">方法学 GKM-01</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>论证</h5>
+      <ul>
+        <li><a href="problem.html">问题与市场</a></li>
+        <li><a href="impact.html">实施与影响</a></li>
+        <li><a href="business.html">可扩展性</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>联系</h5>
+      <ul>
+        <li><a href="mailto:hello@greenkey.mo">hello@greenkey.mo</a></li>
+        <li><span class="small muted">澳门南湾大马路 1 号</span></li>
+        <li><span class="small muted">概念提案 · 非实际运营主体</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <span>© <span data-year>2026</span> 绿钥 GreenKey · 商业案例竞赛概念提案</span>
+    <span>本站数据基于公开参数与自建模型；示例企业为虚构，用于方法演示。</span>
+  </div>
+</footer>
+
+<script src="assets/model.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(function () {
+  var r = GKModel.compute({ type: "boutique", measures: ["floor", "hours", "hvac", "standby"] });
+  var svg = document.getElementById("heroChart");
+  function draw() {
+    GKApp.chart(svg, r, { theme: "light", height: 300, holidayLabel: "国 庆 黄 金 周" });
+    if (window.GKI18N) window.GKI18N.apply(document.body);
+  }
+  draw();
+  GKApp.onResize(draw);
+})();
+</script>
+</body>
+</html>

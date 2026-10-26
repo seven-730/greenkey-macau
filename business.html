@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>可扩展性与资金路径 · 一座城之后 | 绿钥 GreenKey</title>
+<meta name="description" content="绿钥的方法论可移植性：里斯本、槟城、曼谷等旅游城市，以及办公、学校、零售等具有工作日/节假日波动特征的行业；成本规模曲线与资金来源三阶段。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="绿钥 GreenKey">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:locale:alternate" content="en">
+<meta property="og:title" content="可扩展性与资金路径 · 一座城之后 | 绿钥 GreenKey">
+<meta property="og:description" content="绿钥的方法论可移植性：里斯本、槟城、曼谷等旅游城市，以及办公、学校、零售等具有工作日/节假日波动特征的行业；成本规模曲线与资金来源三阶段。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05090b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070d10'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='%232be8a6' stroke-width='2.4'/%3E%3Cpath d='M17 17l9 9M22 22l-2.4 2.4M25 25l-2.4 2.4' stroke='%232be8a6' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/boot.css">
+<noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+<script>(function () {
+  var d = document.documentElement;
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.get("lang") === "en") localStorage.setItem("gk_lang", "en");
+    if (p.get("lang") === "zh") localStorage.setItem("gk_lang", "zh");
+    if (localStorage.getItem("gk_lang") === "en") {
+      d.classList.add("i18n-pending");
+      setTimeout(function () { d.classList.remove("i18n-pending"); }, 3000);
+    }
+  } catch (e) {}
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get("boot") === "0") return;
+    var seen = false;
+    try { seen = sessionStorage.getItem("gk_boot") === "1"; } catch (e) {}
+    if (seen && q.get("boot") !== "1") return;
+    d.classList.add("boot");
+    setTimeout(function () { if (!window.__GK_BOOT_DONE__) d.classList.remove("boot"); }, 3500);
+  } catch (e) {}
+})();</script>
+<script src="assets/lang/en-1.js" defer></script>
+<script src="assets/lang/en-2.js" defer></script>
+<script src="assets/lang/en-3.js" defer></script>
+<script src="assets/lang/en-4.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/boot.js" defer></script>
+</head>
+<body>
+<div class="progress"><div class="progress__bar"></div></div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html" aria-label="绿钥 GreenKey 首页">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+        <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+        <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="主导航">
+      <a href="index.html">摘要</a>
+      <a href="problem.html">问题</a>
+      <a href="platform.html">方案</a>
+      <a href="demo.html">演示</a>
+      <a href="impact.html">实施</a>
+      <a href="business.html" aria-current="page">扩展</a>
+      <a href="methodology.html">方法学</a>
+    </nav>
+    <a class="btn btn--sm nav__cta" href="demo.html">试算我的门店 <span class="arw">→</span></a>
+    <button class="nav__toggle" aria-label="展开菜单" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">摘要</a> <span>/</span> <span>可扩展性</span></div>
+    <div class="grid g-7-5" style="align-items:end">
+      <div>
+        <span class="eyebrow">可扩展性 · 07</span>
+        <h1 class="h1" style="max-width:20ch">澳门不是终点，<br>是<em>第一个样本</em>。</h1>
+      </div>
+      <div>
+        <p class="lede">
+          这套方法不依赖澳门的特殊性，它依赖一个更普遍的结构：<strong>需求随节假日与工作日剧烈波动、而固定成本无法同步收缩的服务业</strong>。
+          所有被这种波动撕开的城市，都是同一道题。
+        </p>
+        <div class="page-head__meta">
+          <span>方法可移植 <b>3 个维度</b></span>
+          <span>单店成本 <b>MOP 7.1 万 → 4,300</b></span>
+          <span>资金来源 <b>3 个阶段</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7.1 可移植性 -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">7.1 — 方法论的可移植性</span>
+      <h2 class="h2">换一座城，<br>换的是参数，不是逻辑。</h2>
+      <p class="lede">BAU 基线基于本地数据构建，而不是依赖固定假设。因此迁移时只需要重训两类输入：本地日历（节假日与旺季结构）与本地气候（采暖/制冷度日）。</p>
+    </div>
+
+    <div class="grid g3" data-reveal>
+      <div class="card">
+        <span class="card__idx">维度 01</span>
+        <h3 class="h3" style="font-size:19px">地理</h3>
+        <p class="small muted" style="margin-top:8px">
+          任何"旅游业主导 + 节假日集中 + 小微住宿密集"的城市。里斯本、槟城、曼谷，以及东盟沿海的旅游城市，都具备同样的需求断崖。
+        </p>
+      </div>
+      <div class="card">
+        <span class="card__idx">维度 02</span>
+        <h3 class="h3" style="font-size:19px">行业</h3>
+        <p class="small muted" style="margin-top:8px">
+          把"入住间夜"换成"工位占用""在校人数""客流"，同一套强度口径可以直接复用到办公、学校与零售。
+        </p>
+      </div>
+      <div class="card">
+        <span class="card__idx">维度 03</span>
+        <h3 class="h3" style="font-size:19px">气候</h3>
+        <p class="small muted" style="margin-top:8px">
+          亚热带用冷却度日，温带用采暖度日或两者并用；模型结构不变，只是天气特征项不同。
+        </p>
+      </div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:clamp(32px,4vw,52px)" data-reveal>
+      <table class="tbl">
+        <thead><tr><th>候选市场</th><th>共同结构</th><th>迁移时需要重做的部分</th></tr></thead>
+        <tbody>
+          <tr><td><strong>里斯本</strong></td><td>旅游业主导、假日集中、老城区小型住宿密度高</td><td>气候（采暖 + 制冷并用）、葡语区法规与补贴口径</td></tr>
+          <tr><td><strong>槟城</strong></td><td>世遗老城、小微民宿密集、周末客流显著</td><td>热带气候参数、宗教与族裔假期日历</td></tr>
+          <tr><td><strong>曼谷</strong></td><td>旅游与商务混合、大量小型酒店与餐饮</td><td>体量更大、电力市场与电价结构不同</td></tr>
+          <tr><td><strong>东盟沿海城市</strong></td><td>气候相似、旅游依赖度高</td><td>数据基础设施参差，需先做计量设备部署</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:14px">
+      我们不假设"澳门模式"可以直接复制。每个市场都必须重新验证：同样的方法学，能否在本地监管与银行风控下被采信。
+    </p>
+  </div>
+</section>
+
+<!-- 成本规模 -->
+<section class="section" style="background:var(--paper-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="grid g-5-7" style="gap:clamp(28px,4vw,64px);align-items:start">
+      <div data-reveal>
+        <span class="eyebrow">7.2 — 成本与规模</span>
+        <h2 class="h2" style="font-size:clamp(24px,2.8vw,36px)">固定成本被摊薄，<br>边际成本接近零。</h2>
+        <p class="lede" style="margin-top:16px;font-size:15px">
+          平台的成本结构是"高固定、低边际"：开发与年运营相对刚性，而每增加一家企业的增量成本主要是审计与数据。
+          规模每翻一倍，单店成本近乎腰斩。
+        </p>
+        <div class="callout" style="margin-top:20px">
+          按单店年节省电费 MOP 4 万量级测算，<strong>服务费取节能收益的 20–30%</strong>，即可在 300 家规模时覆盖成本；到 1,000 家时，毛利空间出现。
+        </div>
+      </div>
+      <div class="table-wrap" data-reveal data-delay="1">
+        <table class="tbl">
+          <thead><tr><th>认证规模</th><th>固定成本（年）</th><th>单店年化成本</th><th>相对 30 家</th></tr></thead>
+          <tbody>
+            <tr><td>30 家（试点）</td><td>MOP 207 万</td><td><strong>MOP 71,100</strong></td><td>100%</td></tr>
+            <tr><td>100 家</td><td>MOP 207 万</td><td><strong>MOP 22,900</strong></td><td>32%</td></tr>
+            <tr><td>300 家</td><td>MOP 207 万</td><td><strong>MOP 9,140</strong></td><td>13%</td></tr>
+            <tr style="background:var(--mint-3)"><td><strong>1,000 家</strong></td><td>MOP 207 万</td><td><strong>MOP 4,317</strong></td><td><strong>6%</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="note" style="margin-top:14px">
+          固定成本 = 平台开发摊销（275 万 ÷ 3 年）+ 年运营（115 万）；可变成本按每 100 家 MOP 22.5 万审计费计。
+          此处未计入试点部署的一次性投入（MOP 50–120 万）；若按 3 年摊销，300 家规模时单店成本约 MOP 1.01 万。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 资金来源 -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">7.3 — 资金来源</span>
+      <h2 class="h2">三个阶段，<br>三种钱。</h2>
+      <p class="lede">先拿资助活下来，再靠服务费站住，最后才谈碳市场。顺序不能反。</p>
+    </div>
+
+    <div class="grid g3" data-reveal>
+      <div class="card">
+        <span class="tag tag--gold" style="margin-bottom:14px">阶段一 · 0–12 月</span>
+        <h3 class="h3" style="font-size:19px">试点资助与开发资金</h3>
+        <p class="small muted" style="margin-top:10px">
+          用于平台开发与 20–30 家试点部署，覆盖 MOP 250–470 万的一次性投入。来源：政府创新资助、行业基金、影响力投资。
+        </p>
+        <div class="kv" style="margin-top:16px">
+          <div class="kv__row"><span class="kv__k">覆盖</span><span>开发 + 试点部署 + 首年运营</span></div>
+          <div class="kv__row"><span class="kv__k">里程碑</span><span>首批凭证签发、1 家银行 MOU</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag tag--mint" style="margin-bottom:14px">阶段二 · 12–36 月</span>
+        <h3 class="h3" style="font-size:19px">服务费</h3>
+        <p class="small muted" style="margin-top:10px">
+          每份证书或每家企业的适度服务费，约为其可核证节能收益的 20–30%（首年可完全按效果付费）。这是能否持续的关键。
+        </p>
+        <div class="kv" style="margin-top:16px">
+          <div class="kv__row"><span class="kv__k">定价</span><span>MOP 8,000–15,000 / 年 / 户</span></div>
+          <div class="kv__row"><span class="kv__k">依据</span><span>不超过企业实际节省电费的三成</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <span class="tag" style="margin-bottom:14px">阶段三 · 36 月以后</span>
+        <h3 class="h3" style="font-size:19px">碳市场与绿色债券联动</h3>
+        <p class="small muted" style="margin-top:10px">
+          当认证减排量达到足够规模，组合成可交易的资产包，对接自愿减排市场或绿色债券的底层资产。
+          <strong>这必须建立在凭证已被银行与政府采信之后。</strong>
+        </p>
+        <div class="kv" style="margin-top:16px">
+          <div class="kv__row"><span class="kv__k">前提</span><span>2,000 家量级、方法学被制度吸收</span></div>
+          <div class="kv__row"><span class="kv__k">风险</span><span>碳价波动，不作为主要收入</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 政策与长期 -->
+<section class="section band">
+  <div class="wrap">
+    <div class="grid g2" style="gap:clamp(28px,4vw,64px);align-items:start">
+      <div data-reveal>
+        <span class="eyebrow">7.4 — 政策路径</span>
+        <h2 class="h2" style="font-size:clamp(24px,2.8vw,34px);margin-bottom:18px">顺着现有框架走，<br>只改一个判定条件。</h2>
+        <p class="lede" style="margin-bottom:18px">
+          我们不主张推翻现行绿色金融框架，而是提出一个最小改动：在补贴与信贷的合格性条件中，
+          <strong>增加"经核证的运营性减排"这一条</strong>，与"资本密集型改造"并列。
+        </p>
+        <ul class="list-check list-check--dark" style="color:rgba(233,245,239,.82)">
+          <li>遵循澳门正在成形的绿色金融框架，不另起一套标准</li>
+          <li>在可行时采用新兴碳定价工具作为参考价</li>
+          <li>倡导把运营性减排写进贴息与认证的合格条件</li>
+          <li>把证书模板对齐现有申报表格，减少企业额外负担</li>
+        </ul>
+      </div>
+      <div data-reveal data-delay="1">
+        <span class="eyebrow">7.5 — 长期效益</span>
+        <h2 class="h2" style="font-size:clamp(24px,2.8vw,34px);margin-bottom:18px">两笔账，<br>一笔比一笔慢。</h2>
+        <div class="card card--dark" style="background:rgba(0,0,0,.22);border-color:rgba(43,232,166,.18)">
+          <div class="kv kv--dark">
+            <div class="kv__row">
+              <span class="kv__k">生态</span>
+              <span>可量化、可持续地降低能源需求与排放量；减排不再是年度报告里的一次性数字，而是逐月累积的存量。</span>
+            </div>
+            <div class="kv__row">
+              <span class="kv__k">社会</span>
+              <span>让旅游价值链中的本地小企业第一次获得与其效率相称的金融条件；普惠金融与低碳转型在同一套工具里完成。</span>
+            </div>
+          </div>
+        </div>
+        <p class="small" style="color:rgba(233,245,239,.6);margin-top:16px">
+          我们更愿意把"长期效益"说成"长期依赖"：这套系统只有在银行持续采信、政府持续认账的前提下才有价值。
+          所以第 3 条成功条件，比任何减排量都重要。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="sec-head" data-reveal style="max-width:none;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="max-width:58ch">
+        <span class="eyebrow">最后</span>
+        <h2 class="h2">如果只看一个页面，<br>请打开交互演示。</h2>
+        <p class="lede" style="margin-top:14px">拖动入住率，看哪一个数字会变——这是我们整份提案的胜负手。</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn--lg" href="demo.html">进入交互演示 <span class="arw">→</span></a>
+        <a class="btn btn--ghost btn--lg" href="methodology.html">核对方法学</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+          <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+          <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+      </a>
+      <p class="footer__desc">为澳门持牌小型酒店、经济型酒店、青年旅舍与小餐饮设计的运营级碳效核算与绿色金融平台。</p>
+    </div>
+    <div>
+      <h5>方案</h5>
+      <ul>
+        <li><a href="platform.html">四层架构</a></li>
+        <li><a href="demo.html">交互演示</a></li>
+        <li><a href="methodology.html">方法学 GKM-01</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>论证</h5>
+      <ul>
+        <li><a href="problem.html">问题与市场</a></li>
+        <li><a href="impact.html">实施与影响</a></li>
+        <li><a href="business.html">可扩展性</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>联系</h5>
+      <ul>
+        <li><a href="mailto:hello@greenkey.mo">hello@greenkey.mo</a></li>
+        <li><span class="small muted">澳门南湾大马路 1 号</span></li>
+        <li><span class="small muted">概念提案 · 非实际运营主体</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <span>© <span data-year>2026</span> 绿钥 GreenKey · 商业案例竞赛概念提案</span>
+    <span>本站数据基于公开参数与自建模型；示例企业为虚构，用于方法演示。</span>
+  </div>
+</footer>
+
+<script src="assets/model.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

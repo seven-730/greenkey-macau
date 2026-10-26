@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>方法学 GKM-01 v2.0 · 双轨基线与强度归因 | 绿钥 GreenKey</title>
+<meta name="description" content="绿钥运营归因减排方法学 GKM-01 v2.0：边界、日型双轨基线、入住率校正、强度归因、逐日算例、数据分级、与既有标准的关系及已知局限。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="绿钥 GreenKey">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:locale:alternate" content="en">
+<meta property="og:title" content="方法学 GKM-01 v2.0 · 双轨基线与强度归因 | 绿钥 GreenKey">
+<meta property="og:description" content="绿钥运营归因减排方法学 GKM-01 v2.0：边界、日型双轨基线、入住率校正、强度归因、逐日算例、数据分级、与既有标准的关系及已知局限。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#05090b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070d10'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='%232be8a6' stroke-width='2.4'/%3E%3Cpath d='M17 17l9 9M22 22l-2.4 2.4M25 25l-2.4 2.4' stroke='%232be8a6' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/boot.css">
+<noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+<script>(function () {
+  var d = document.documentElement;
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.get("lang") === "en") localStorage.setItem("gk_lang", "en");
+    if (p.get("lang") === "zh") localStorage.setItem("gk_lang", "zh");
+    if (localStorage.getItem("gk_lang") === "en") {
+      d.classList.add("i18n-pending");
+      setTimeout(function () { d.classList.remove("i18n-pending"); }, 3000);
+    }
+  } catch (e) {}
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get("boot") === "0") return;
+    var seen = false;
+    try { seen = sessionStorage.getItem("gk_boot") === "1"; } catch (e) {}
+    if (seen && q.get("boot") !== "1") return;
+    d.classList.add("boot");
+    setTimeout(function () { if (!window.__GK_BOOT_DONE__) d.classList.remove("boot"); }, 3500);
+  } catch (e) {}
+})();</script>
+<script src="assets/lang/en-1.js" defer></script>
+<script src="assets/lang/en-2.js" defer></script>
+<script src="assets/lang/en-3.js" defer></script>
+<script src="assets/lang/en-4.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/boot.js" defer></script>
+</head>
+<body>
+<div class="progress"><div class="progress__bar"></div></div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html" aria-label="绿钥 GreenKey 首页">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+        <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+        <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="主导航">
+      <a href="index.html">摘要</a>
+      <a href="problem.html">问题</a>
+      <a href="platform.html">方案</a>
+      <a href="demo.html">演示</a>
+      <a href="impact.html">实施</a>
+      <a href="business.html">扩展</a>
+      <a href="methodology.html" aria-current="page">方法学</a>
+    </nav>
+    <a class="btn btn--sm nav__cta" href="demo.html">试算我的门店 <span class="arw">→</span></a>
+    <button class="nav__toggle" aria-label="展开菜单" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">摘要</a> <span>/</span> <span>方法学</span></div>
+    <div class="grid g-7-5" style="align-items:end">
+      <div>
+        <span class="eyebrow">方法学 · GKM-01</span>
+        <h1 class="h1" style="max-width:22ch">双轨基线<br>与强度归因</h1>
+      </div>
+      <div>
+        <p class="lede">
+          这份文档规定了绿钥如何把一个数字变成一份凭证：边界在哪里、两条基线怎么算、什么情况下不计入，
+          以及我们在什么条件下会承认自己算错了。
+        </p>
+        <div class="page-head__meta">
+          <span>版本 <b>v2.0</b></span>
+          <span>生效 <b>2026-10-01</b></span>
+          <span>计量粒度 <b>日 · 强度</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="doc-grid">
+
+      <aside class="doc-toc">
+        <div class="doc-toc__t">目录</div>
+        <a href="#s0">§0 适用性与边界</a>
+        <a href="#s1">§1 术语定义</a>
+        <a href="#s2">§2 双轨基线</a>
+        <a href="#s3">§3 归因规则</a>
+        <a href="#s4">§4 计算公式</a>
+        <a href="#s5">§5 逐日算例</a>
+        <a href="#s6">§6 数据质量分级</a>
+        <a href="#s7">§7 保守性原则</a>
+        <a href="#s8">§8 与既有标准的关系</a>
+        <a href="#s9">§9 已知局限</a>
+      </aside>
+
+      <div class="doc-body">
+
+        <!-- §0 -->
+        <div class="doc-sec" id="s0">
+          <h2><span class="n">§ 0</span>适用性与核算边界</h2>
+          <div class="spec" style="margin:18px 0 20px">
+            <div class="spec__row"><div class="spec__k">方法学编号</div><div class="spec__v">GKM-01 / Operational-Attributable Reduction（OAR）</div></div>
+            <div class="spec__row"><div class="spec__k">适用主体</div><div class="spec__v">澳门持牌小型酒店、经济型酒店、公寓式酒店、青年旅舍与小型持证餐饮场所</div></div>
+            <div class="spec__row"><div class="spec__k">核算边界</div><div class="spec__v">外购电力（Scope 2，位置基准）· 门店级 · 不含燃料、制冷剂、物流与差旅</div></div>
+            <div class="spec__row"><div class="spec__k">计量周期</div><div class="spec__v">以"计费日"为单位（默认 28 日观察窗口），最短可至 15 分钟聚合</div></div>
+            <div class="spec__row"><div class="spec__k">活动量单位</div><div class="spec__v">住宿业：入住间夜 / 床位夜；餐饮业：到店客次</div></div>
+            <div class="spec__row"><div class="spec__k">产出物</div><div class="spec__v">避免用电量（kWh）、避免排放量（tCO₂e）、单位活动量强度改善（%）</div></div>
+            <div class="spec__row"><div class="spec__k">不适用</div><div class="spec__v">企业级年度碳盘查、产品碳足迹、碳信用（offset）签发</div></div>
+          </div>
+          <p>
+            本方法学只回答一个问题：<strong>在给定的计费日内，当住客数量与当天实际一致时，这家店的用电量相对"什么都没做"的反事实减少了多少。</strong>
+            它不试图回答"这家企业总共排放了多少"，也不产出可用于抵消的碳信用。
+          </p>
+          <p>
+            边界刻意收窄到电表能证明的部分。企业级盘查需要处理燃料、制冷剂、采购商品与员工通勤；小微商户没有能力提供这些数据，强行纳入只会让结果更不可信。
+          </p>
+        </div>
+
+        <!-- §1 -->
+        <div class="doc-sec" id="s1">
+          <h2><span class="n">§ 1</span>术语定义</h2>
+          <div class="table-wrap" style="margin-top:16px">
+            <table class="mini-tbl">
+              <thead><tr><th style="width:150px">术语</th><th>定义</th></tr></thead>
+              <tbody>
+                <tr><td><strong>日型</strong></td><td>工作日 / 周末 / 公众假期。澳门的用电结构由日型驱动，而非传统淡旺季。</td></tr>
+                <tr><td><strong>历史常态</strong></td><td>近 12 个月同类型日的历史均值，包含当时的入住率水平。回答"这种日子通常用多少"。</td></tr>
+                <tr><td><strong>校正 BAU</strong></td><td>把历史常态按<strong>当日实际活动量</strong>换算后的期望用电。回答"今天住这么多人，正常该用多少"。</td></tr>
+                <tr><td><strong>活动量效应</strong></td><td>入住率/客数变化引起的用电变化。真实存在，但<strong>不计入</strong>减排，因为不是效率改善。</td></tr>
+                <tr><td><strong>强度效应（OAR）</strong></td><td>在相同活动量下，单位能耗下降带来的节电量。这是唯一被核证的部分。</td></tr>
+                <tr><td><strong>未干预窗口</strong></td><td>措施上线前、且无重大经营变更的连续计费日，是基线唯一的训练数据来源。</td></tr>
+                <tr><td><strong>满年化</strong></td><td>按年度日型构成（工作日 250 / 周末 96 / 假期 19）外推的年减排量，仅用于潜力展示与授信测算。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- §2 -->
+        <div class="doc-sec" id="s2">
+          <h2><span class="n">§ 2</span>双轨基线模型</h2>
+          <p>对每个计费日 <em>d</em>，模型同时给出两条基线：</p>
+          <div class="formula" style="margin:16px 0">
+E<sub>exp</sub>(d) = Base · W(d) + A<sub>norm</sub>(d) · I<sub>0</sub> · W(d)　　← 历史常态
+E<sub>bau</sub>(d) = Base · W(d) + A<sub>act</sub>(d) · I<sub>0</sub> · W(d)　　← 校正 BAU
+          </div>
+          <ul>
+            <li><strong>Base</strong>：每日基载（公区、厨房、电梯、热水），不随入住率线性变化；</li>
+            <li><strong>A<sub>norm</sub></strong>：按历史常态入住率推算的活动量；<strong>A<sub>act</sub></strong>：当日实际活动量；</li>
+            <li><strong>I₀</strong>：单位活动量基准能耗（kWh / 间夜或客次）；</li>
+            <li><strong>W(d)</strong>：气候修正系数，由冷却度日 CDD（18℃ 基准）线性映射。</li>
+          </ul>
+          <p>
+            两条线的差值 <strong>E<sub>exp</sub> − E<sub>bau</sub></strong> 就是活动量效应。把它从"改善"中扣掉，
+            剩下的 <strong>E<sub>bau</sub> − E<sub>act</sub></strong> 才是可以被归因的强度效应。
+            这一步是本方法学与所有"历史均值基线"做法的分水岭。
+          </p>
+          <h3>训练窗口规则</h3>
+          <ol>
+            <li>仅使用<strong>未干预窗口</strong>的数据，措施上线后的观测值永不回流进基线；</li>
+            <li>窗口不少于 6 个计费周期；不足时使用业态先验并自动放宽置信区间（见 §6 C 级）；</li>
+            <li>每 12 个周期滚动重训一次，保留历史版本以便复算；</li>
+            <li>检测到结构性变更（扩建、换设备、营业时间重大调整）时，重训并从下一周期重新起算；</li>
+            <li>历史常态采用<strong>固定基准年</strong>而非滚动窗口，避免"长期低入住率把基准拉低"的漂移。</li>
+          </ol>
+        </div>
+
+        <!-- §3 -->
+        <div class="doc-sec" id="s3">
+          <h2><span class="n">§ 3</span>归因规则</h2>
+          <p>以下五条规则按顺序执行，任一条件不满足则该计费日不计入 OAR。</p>
+          <div class="tl" style="margin-top:20px">
+            <div class="tl__item tl__item--now">
+              <span class="tl__when">R1 · 活动量校正</span>
+              <p class="small" style="margin:4px 0 0">BAU 必须以当日实际活动量换算。未校正的差值一律视为活动量效应，不进入归因池。</p>
+            </div>
+            <div class="tl__item">
+              <span class="tl__when">R2 · 置信门槛</span>
+              <p class="small" style="margin:4px 0 0">E<sub>act</sub>(d) &lt; 0.94 · E<sub>bau</sub>(d)（P10 置信下界），且连续 ≥ 2 个计费日满足。单日偶发不计入。</p>
+            </div>
+            <div class="tl__item">
+              <span class="tl__when">R3 · 计量口径</span>
+              <p class="small" style="margin:4px 0 0">归因额 = E<sub>bau</sub>(d) − E<sub>act</sub>(d)。不采用上限估计，避免系统性高估。</p>
+            </div>
+            <div class="tl__item">
+              <span class="tl__when">R4 · 缓冲与剔除</span>
+              <p class="small" style="margin:4px 0 0">措施上线当日为缓冲日，不计入；停电、施工、停业区间整段剔除，不插值、不外推。</p>
+            </div>
+            <div class="tl__item">
+              <span class="tl__when">R5 · 措施溯源</span>
+              <p class="small" style="margin:4px 0 0">措施时点以运维工单、门磁或采购记录为准，不以企业申报为准。无记录的"措施"不产生证书。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- §4 -->
+        <div class="doc-sec" id="s4">
+          <h2><span class="n">§ 4</span>计算公式</h2>
+          <div class="formula" style="margin:16px 0">
+OAR = Σ<sub>d ∈ D</sub> max( 0 , E<sub>bau</sub>(d) − E<sub>act</sub>(d) ) · 1[ E<sub>act</sub>(d) &lt; 0.94 · E<sub>bau</sub>(d) ]
+
+强度改善 = 1 − ΣE<sub>act</sub> / ΣE<sub>bau</sub>　（按活动量加权）
+
+活动量效应 = ΣE<sub>exp</sub> − ΣE<sub>bau</sub>　（明确排除，不进入证书）
+
+tCO₂e = OAR × EF / 1000
+EF = 0.50 kgCO₂e/kWh（澳门电网参考值，按核证年度官方披露更新）
+          </div>
+          <p>
+            其中 <em>D</em> 为满足 R1–R5 的计费日集合。排放因子在证书中冻结为签发时的取值与来源版本；
+            若后续官方更新，仅影响新签发的证书，不影响存量。
+          </p>
+          <h3>绿信分</h3>
+          <div class="formula">
+GCS = 300 + 700 × ( 0.50·S₁ + 0.18·S₂ + 0.17·S₃ + 0.15·S₄ )
+
+S₁ = min( 1 , 强度改善 / 18% )
+S₂ = min( 1 , 连续核证月数 / 18 )　（须存在可归因减排，否则为 0）
+S₃ = Σ 数据源权重（电表 .38 / 账单 .24 / 入住率 .24 / 工时 .14）
+S₄ = 0.6 × 第三方复核 + 0.4 × 公开披露
+          </div>
+          <p>
+            S₁ 的分母 18% 取自本方法学在六业态上测算出的强度改善上限，用于把不同体量的门店放到同一把尺子上。
+            S₃ 与 S₄ 是对"证据强度"的定价，而不是对"减排量"的定价。
+          </p>
+        </div>
+
+        <!-- §5 -->
+        <div class="doc-sec" id="s5">
+          <h2><span class="n">§ 5</span>逐日算例</h2>
+          <p>
+            以演示页默认参数为例：精品酒店 40 间客房，工作日入住率 38%（历史常态 52%），节假日 92%，
+            实施"关闭低使用楼层、缩短营业时长、空调分区控制、待机管理"四项措施。
+            所有数字可由 <a href="demo.html" style="text-decoration:underline;text-underline-offset:3px">交互演示页</a> 复算。
+          </p>
+          <div class="table-wrap" style="margin-top:16px">
+            <table class="mini-tbl">
+              <thead><tr><th>日型</th><th>天数</th><th>历史常态<br>日均 kWh</th><th>校正 BAU<br>日均 kWh</th><th>实测<br>日均 kWh</th><th>可核证<br>日均 kWh</th></tr></thead>
+              <tbody>
+                <tr><td>工作日</td><td>14</td><td>991</td><td>847</td><td>737</td><td><strong>110</strong></td></tr>
+                <tr><td>周末</td><td>6</td><td>1,296</td><td>1,280</td><td>1,194</td><td><strong>86</strong></td></tr>
+                <tr><td>公众假期</td><td>8</td><td>1,422</td><td>1,420</td><td>1,324</td><td><strong>96</strong></td></tr>
+                <tr style="border-top:1px solid var(--line-2)"><td><strong>合计 / 均值</strong></td><td>28</td><td>1,179</td><td>1,104</td><td>1,003</td><td><strong>2,827</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:16px">
+            注意工作日一列：历史常态 991、校正 BAU 847，相差 144 kWh——这部分的下降来自"客人从 52% 掉到 38%"，
+            与任何措施无关，因此不计入。真正的核证量只有 110 kWh/日。
+          </p>
+          <p>
+            整月合计：账单相对历史常态下降 15.0%（4,952 kWh），其中活动量效应 2,126 kWh、强度效应 2,827 kWh。
+            若不做校正，4,952 kWh 会被全部记成减排——比真实值高 75%。
+          </p>
+        </div>
+
+        <!-- §6 -->
+        <div class="doc-sec" id="s6">
+          <h2><span class="n">§ 6</span>数据质量分级</h2>
+          <div class="table-wrap" style="margin-top:16px">
+            <table class="mini-tbl">
+              <thead><tr><th>等级</th><th>数据条件</th><th>置信区间</th><th>可用途</th></tr></thead>
+              <tbody>
+                <tr><td><strong>A</strong></td><td>智能电表 + 账单 + 入住率 + 工时（四源齐备，≥ 12 个周期）</td><td>±6%</td><td>信贷、贴息、认证申报</td></tr>
+                <tr><td><strong>B</strong></td><td>三源齐备，或四源但周期 &lt; 12 个周期</td><td>±9%</td><td>信贷（额度下调）、贴息</td></tr>
+                <tr><td><strong>C</strong></td><td>仅有账单，或使用业态先验的冷启动</td><td>±15%</td><td>仅贴息材料、内部管理</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:16px">
+            置信区间直接决定 R2 的门槛高度：B 级证书的 P10 下移，C 级进一步下移，因此同一家店在数据不足时会得到更小的 OAR。
+            这是"证据不足就要少算"的机械实现，不依赖人的判断。
+          </p>
+        </div>
+
+        <!-- §7 -->
+        <div class="doc-sec" id="s7">
+          <h2><span class="n">§ 7</span>保守性原则</h2>
+          <p>当存在多种可行的计算路径时，本方法学一律选择产生较小 OAR 的那一条。具体体现为：</p>
+          <ul>
+            <li>用校正 BAU 而非历史常态作被减数（先扣掉活动量效应）；</li>
+            <li>用 P10 而非 P50 作门槛；</li>
+            <li>措施效果按独立事件相乘合并，天然处理重叠与衰减，不用简单加总；</li>
+            <li>缓冲日与爬坡期照常计入实测，但不做满年化外推；</li>
+            <li>结构性变更后重新起算，不追溯继承历史效果。</li>
+          </ul>
+          <p>
+            代价是可核证量通常只有"账单降幅"的 55–65%。这是有意为之：一份能被银行采信的小数字，胜过一份没人敢用的大数字。
+          </p>
+        </div>
+
+        <!-- §8 -->
+        <div class="doc-sec" id="s8">
+          <h2><span class="n">§ 8</span>与既有标准的关系</h2>
+          <p>
+            本方法学在结构上参照通行的节能量与减排量核算框架，但<strong>不宣称符合或获得任何标准的认证</strong>。对应的位置如下：
+          </p>
+          <div class="table-wrap" style="margin-top:16px">
+            <table class="mini-tbl">
+              <thead><tr><th>参照文件</th><th>借用的部分</th><th>差异</th></tr></thead>
+              <tbody>
+                <tr><td>GHG Protocol · Scope 2 Guidance</td><td>外购电力的边界划定与排放因子法</td><td>不产出企业级清单，只产出单店避免量</td></tr>
+                <tr><td>ISO 50015（节能量测量与验证）</td><td>基线设定、调整与不确定性处理的一般原则</td><td>以统计置信区间替代工程计算法</td></tr>
+                <tr><td>ISO 14064-2（项目层面减排）</td><td>额外性、基线情景与监测计划的思路</td><td>不做项目注册，不做抵消签发</td></tr>
+                <tr><td>CDM 方法学（AMS-II.C 等）</td><td>小规模能效项目的简化处理</td><td>颗粒度到单店单日，规模远小于 CDM 门槛</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:16px">
+            目标是在试点结束后，与本地认证机构共同提交一份可在澳门适用的行业方法学草案，并争取被纳入绿色信贷的操作指引。
+            在那之前，任何"已获认证"的表述都不成立。
+          </p>
+        </div>
+
+        <!-- §9 -->
+        <div class="doc-sec" id="s9">
+          <h2><span class="n">§ 9</span>已知局限</h2>
+          <p>以下是我们目前做不到、或者做不好的事。列出来，是为了让使用者知道边界在哪里。</p>
+          <ul style="margin-top:14px">
+            <li><strong>日型分类依赖日历准确性。</strong>临时假期调整、跨年调休或大型活动期间的非常规营业，会造成日型误判；我们会在证书中标注"日历偏离"提示。</li>
+            <li><strong>基准漂移风险未被完全消除。</strong>若企业长期维持低入住率，滚动窗口会把基准拉低。因此历史常态固定采用基准年，但这意味着基准会随产业周期逐渐过时。</li>
+            <li><strong>只度量总量，不分解贡献。</strong>OAR 能告诉你"少了多少度"，但不能可靠地拆成"关楼层贡献多少、空调策略贡献多少"。分项计量可部分缓解，成本会上升。</li>
+            <li><strong>混合业态拆解不足。</strong>酒店带餐厅、旅舍带咖啡厅时，餐饮部分的活动量单位与住宿不同，目前的处理偏粗。</li>
+            <li><strong>无法处理非电减排。</strong>燃气炉具、制冷剂泄漏、食材采购都不在边界内，而这些在餐饮业并非小数目。</li>
+            <li><strong>仍存在策略性博弈空间。</strong>理论上企业可在基准年刻意维持高能耗。我们通过"固定基准年 + 同业横截面 + 变更点检测"三重约束提高成本，但无法完全消除。</li>
+          </ul>
+          <div class="card card--tint" style="margin-top:24px">
+            <p class="small" style="margin:0">
+              <strong>一句免责：</strong>本方法学产出的是"避免排放凭证"，用于绿色金融与政府认证的材料支持，
+              <strong>不是可用于抵消的碳信用（carbon credit）</strong>。我们不参与自愿减排市场，也不为任何企业的碳中和声明提供依据。
+            </p>
+          </div>
+        </div>
+
+        <!-- 版本 -->
+        <div class="doc-sec">
+          <h2><span class="n">附录</span>版本记录</h2>
+          <div class="table-wrap" style="margin-top:16px">
+            <table class="mini-tbl">
+              <thead><tr><th style="width:90px">版本</th><th style="width:120px">日期</th><th>变更</th></tr></thead>
+              <tbody>
+                <tr><td>v1.0</td><td>2026-04</td><td>首版：月度 BAU + P10 门槛 + 五条归因规则</td></tr>
+                <tr><td>v1.2</td><td>2026-07</td><td>增加变更点检测；引入绿信分；补充数据质量分级</td></tr>
+                <tr><td>v2.0</td><td>2026-10</td><td><strong>结构性修订：</strong>改为日型双轨基线；引入入住率校正与活动量/强度分解；活动量单位改为间夜与客次；历史常态固定基准年；补充 §9 局限</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top:16px;font-size:13px;color:var(--muted)">
+            方法学每次变更均保留完整版本，历史证书永久绑定签发时的版本号与参数快照。
+            本页面为竞赛概念稿，正式发布前需经第三方技术评审。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band section--tight">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
+    <div>
+      <span class="eyebrow">读完了，试试看</span>
+      <h2 class="h2" style="margin-bottom:10px">规则很严，但跑起来只要三秒。</h2>
+      <p class="lede" style="max-width:52ch">在演示页里把入住率拖到 15%，看凭证上的数字怎么动。</p>
+    </div>
+    <a class="btn btn--mint btn--lg" href="demo.html">打开演示 <span class="arw">→</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+          <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+          <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+      </a>
+      <p class="footer__desc">为澳门持牌小型酒店、经济型酒店、青年旅舍与小餐饮设计的运营级碳效核算与绿色金融平台。</p>
+    </div>
+    <div>
+      <h5>方案</h5>
+      <ul>
+        <li><a href="platform.html">四层架构</a></li>
+        <li><a href="demo.html">交互演示</a></li>
+        <li><a href="methodology.html">方法学 GKM-01</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>论证</h5>
+      <ul>
+        <li><a href="problem.html">问题与市场</a></li>
+        <li><a href="impact.html">实施与影响</a></li>
+        <li><a href="business.html">可扩展性</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>联系</h5>
+      <ul>
+        <li><a href="mailto:hello@greenkey.mo">hello@greenkey.mo</a></li>
+        <li><span class="small muted">澳门南湾大马路 1 号</span></li>
+        <li><span class="small muted">概念提案 · 非实际运营主体</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <span>© <span data-year>2026</span> 绿钥 GreenKey · 商业案例竞赛概念提案</span>
+    <span>本站数据基于公开参数与自建模型；示例企业为虚构，用于方法演示。</span>
+  </div>
+</footer>
+
+<script src="assets/model.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

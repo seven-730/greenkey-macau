@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>交互演示 · 28 日双基线核算 | 绿钥 GreenKey</title>
+<meta name="description" content="选择业态、调整工作日入住率、勾选运营措施，实时看到历史常态基线、入住率校正 BAU、活动量效应与可核证减排的分拆。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="绿钥 GreenKey">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:locale:alternate" content="en">
+<meta property="og:title" content="交互演示 · 28 日双基线核算 | 绿钥 GreenKey">
+<meta property="og:description" content="选择业态、调整工作日入住率、勾选运营措施，实时看到历史常态基线、入住率校正 BAU、活动量效应与可核证减排的分拆。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#07110e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070d10'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='%232be8a6' stroke-width='2.4'/%3E%3Cpath d='M17 17l9 9M22 22l-2.4 2.4M25 25l-2.4 2.4' stroke='%232be8a6' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/boot.css">
+<noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+<script>(function () {
+  var d = document.documentElement;
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.get("lang") === "en") localStorage.setItem("gk_lang", "en");
+    if (p.get("lang") === "zh") localStorage.setItem("gk_lang", "zh");
+    if (localStorage.getItem("gk_lang") === "en") {
+      d.classList.add("i18n-pending");
+      setTimeout(function () { d.classList.remove("i18n-pending"); }, 3000);
+    }
+  } catch (e) {}
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get("boot") === "0") return;
+    var seen = false;
+    try { seen = sessionStorage.getItem("gk_boot") === "1"; } catch (e) {}
+    if (seen && q.get("boot") !== "1") return;
+    d.classList.add("boot");
+    setTimeout(function () { if (!window.__GK_BOOT_DONE__) d.classList.remove("boot"); }, 3500);
+  } catch (e) {}
+})();</script>
+<script src="assets/lang/en-1.js" defer></script>
+<script src="assets/lang/en-2.js" defer></script>
+<script src="assets/lang/en-3.js" defer></script>
+<script src="assets/lang/en-4.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/boot.js" defer></script>
+</head>
+<body class="is-dark">
+<div class="progress"><div class="progress__bar"></div></div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html" aria-label="绿钥 GreenKey 首页">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+        <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+        <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__text"><strong style="color:#f2f8f5">绿钥</strong><em style="color:#8ba69d">GreenKey</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="主导航">
+      <a href="index.html">摘要</a>
+      <a href="problem.html">问题</a>
+      <a href="platform.html">方案</a>
+      <a href="demo.html" aria-current="page">演示</a>
+      <a href="impact.html">实施</a>
+      <a href="business.html">扩展</a>
+      <a href="methodology.html">方法学</a>
+    </nav>
+    <a class="btn btn--mint btn--sm nav__cta" href="methodology.html">方法学 <span class="arw">→</span></a>
+    <button class="nav__toggle" aria-label="展开菜单" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+  </div>
+</header>
+
+<main class="console">
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="crumbs" style="color:var(--dk-muted)"><a href="index.html">摘要</a> <span>/</span> <span>交互演示</span></div>
+    <div class="grid g-7-5" style="align-items:end">
+      <div>
+        <span class="eyebrow"><span class="dot dot--live"></span> Live Model</span>
+        <h1 class="h1" style="max-width:24ch">拖动入住率，<br>看哪一个数字会变。</h1>
+      </div>
+      <div>
+        <p class="lede">
+          把工作日入住率从 75% 拉到 15%：账单会掉三分之一，但<strong>强度改善几乎不动</strong>。前者是客人变少了，后者才是你变高效了——绿钥只核证后者。
+        </p>
+        <div class="page-head__meta" style="color:var(--dk-muted)">
+          <span>窗口 <b style="color:#2be8a6">28 个计费日</b></span>
+          <span>电网因子 <b style="color:#2be8a6">0.50 kgCO₂e/kWh</b></span>
+          <span>电价 <b style="color:#2be8a6">MOP 1.28/kWh</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+
+    <!-- 输入 -->
+    <div class="grid" style="gap:16px">
+      <div class="panel">
+        <div class="panel__head">
+          <div class="panel__title">01 / 企业画像</div>
+          <span class="tiny mono" style="color:var(--dk-muted)">参数可调，右侧实时重算</span>
+        </div>
+        <div class="chips" id="typeChips"></div>
+        <div class="input-row" style="margin-top:22px">
+          <div class="field">
+            <div class="field__label"><span>经营规模</span><span class="field__value" id="capVal">40 间客房</span></div>
+            <input type="range" id="cap" min="12" max="120" step="1" value="40" aria-label="经营规模">
+            <div class="hint" id="capHint"></div>
+          </div>
+          <div class="field">
+            <div class="field__label"><span>工作日入住率</span><span class="field__value" id="occWVal">38%</span></div>
+            <input type="range" id="occW" min="15" max="75" step="1" value="38" aria-label="工作日入住率">
+            <div class="hint">历史常态 <span id="normW">52%</span> · 低于它即为"活动量减少"</div>
+          </div>
+          <div class="field">
+            <div class="field__label"><span>节假日入住率</span><span class="field__value" id="occHVal">92%</span></div>
+            <input type="range" id="occH" min="50" max="100" step="1" value="92" aria-label="节假日入住率">
+            <div class="hint">假期几乎满房，运营措施效果有限</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel__head">
+          <div class="panel__title">02 / 运营措施</div>
+          <div style="display:flex;gap:6px;align-items:center">
+            <button class="btn btn--sm" id="btnAll" style="--bg:transparent;--bd:var(--dk-line-2);--fg:#e9f5f0">全选</button>
+            <button class="btn btn--sm" id="btnNone" style="--bg:transparent;--bd:var(--dk-line-2);--fg:#e9f5f0">清空</button>
+          </div>
+        </div>
+        <div class="measure-grid" id="measureGrid"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel__head">
+          <div class="panel__title">03 / 数据源与核证状态</div>
+          <span class="tiny mono" style="color:var(--dk-muted)">影响数据质量分与持续性分</span>
+        </div>
+        <div class="src-row" id="srcRow"></div>
+        <div class="input-row" style="margin-top:20px">
+          <div class="field">
+            <div class="field__label"><span>连续核证月数</span><span class="field__value" id="monthsVal">9 个月</span></div>
+            <input type="range" id="months" min="3" max="36" step="3" value="9" aria-label="连续核证月数">
+            <div class="hint">满 18 个月计满分</div>
+          </div>
+          <div class="field">
+            <div class="field__label"><span>第三方复核</span><span class="field__value" id="tpVal">已复核</span></div>
+            <button class="chip" id="tpToggle" aria-pressed="true" style="margin-top:4px">由认证机构抽样复核</button>
+            <div class="hint">占治理分 0.6</div>
+          </div>
+          <div class="field">
+            <div class="field__label"><span>公开披露</span><span class="field__value" id="dsVal">未披露</span></div>
+            <button class="chip" id="dsToggle" aria-pressed="false" style="margin-top:4px">在平台公开年度减排成果</button>
+            <div class="hint">占治理分 0.4</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 结果 -->
+    <div class="result-head" style="margin-top:clamp(40px,5vw,64px)">
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+        <h2 class="h3">核算结果</h2>
+        <span class="tag tag--dark"><span class="dot dot--live"></span> 实时重算</span>
+      </div>
+      <span class="tiny mono" style="color:var(--dk-muted)">口径：28 日观察窗口 + 年度外推</span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi kpi--hi">
+        <div class="kpi__label">年可核证减排</div>
+        <div class="kpi__num"><span id="kpiKwh">37,612</span><small>kWh</small></div>
+        <div class="kpi__sub">观察窗口内 <span id="kpiWin">2,827</span> kWh</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">年避免排放</div>
+        <div class="kpi__num"><span id="kpiTco2">18.8</span><small>tCO₂e</small></div>
+        <div class="kpi__sub">EF 0.50 · 约 <span id="kpiTrees">895</span> 棵树/年</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">单位活动量强度改善</div>
+        <div class="kpi__num"><span id="kpiGain">9.1</span><small>%</small></div>
+        <div class="kpi__sub"><span id="kpiInt">43.5 → 39.5</span> kWh/间夜</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__label">绿信分 GCS</div>
+        <div class="kpi__num"><span id="kpiScore">723</span><small>/1000</small></div>
+        <div class="kpi__sub"><span id="kpiTier">稳健 · Silver</span></div>
+      </div>
+    </div>
+
+    <!-- 图表 -->
+    <div class="panel" style="margin-top:16px">
+      <div class="panel__head">
+        <div class="panel__title"><span class="dot"></span> 28 日 · 三条线</div>
+        <div class="legend legend--chart" style="font-size:10.5px;gap:6px 16px">
+          <span><i class="bandW" style="background:rgba(43,232,166,.09)"></i>工作日</span>
+          <span><i class="bandH" style="background:rgba(226,178,105,.28)"></i>周末 / 假期</span>
+          <span><i class="exp"></i>历史常态</span>
+          <span><i class="dash" style="border-color:rgba(233,245,240,.45)"></i>校正 BAU</span>
+          <span><i class="dot" style="background:#2be8a6"></i>实测</span>
+        </div>
+      </div>
+      <div class="chart-shell">
+        <svg id="dayChart" height="340" role="img" aria-label="28 日三条基线对比图"></svg>
+        <div class="chart-readout" id="chartReadout">
+          <span>把光标移到图上，逐日查看三条线的位置关系</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分解 -->
+    <div class="grid g2" style="margin-top:16px;gap:16px">
+      <div class="panel">
+        <div class="panel__head">
+          <div class="panel__title">04 / 账单降幅的解剖</div>
+          <span class="tag tag--dark" id="dropTag">−18.9%</span>
+        </div>
+        <p class="small" style="color:var(--dk-muted);margin-bottom:14px" id="dropText">
+          与历史常态相比，这家店的用电少了 18.9%。但其中一半只是客人变少了。
+        </p>
+        <div class="effect-bar" style="margin-bottom:12px">
+          <span class="act" id="barAct" style="width:50%">活动量 <b style="margin-left:6px" id="barActN">9.4%</b></span>
+          <span class="eff" id="barEff" style="width:50%">强度 <b style="margin-left:6px" id="barEffN">9.4%</b></span>
+        </div>
+        <div class="grid g2" style="gap:14px">
+          <div>
+            <div class="tiny mono" style="color:var(--dk-muted)">活动量效应（不计入）</div>
+            <div class="mono" style="font-size:19px;color:#e8825a;margin-top:4px" id="actEff">4,657 kWh</div>
+            <div class="tiny mono" style="color:var(--dk-muted);margin-top:2px">入住率低于常态的部分</div>
+          </div>
+          <div>
+            <div class="tiny mono" style="color:var(--dk-muted)">强度效应（可核证）</div>
+            <div class="mono" style="font-size:19px;color:var(--mint-hi);margin-top:4px" id="effEff">2,827 kWh</div>
+            <div class="tiny mono" style="color:var(--dk-muted);margin-top:2px">同样住这么多人，少用的电</div>
+          </div>
+        </div>
+        <div class="invariant" style="margin-top:16px">
+          把工作日入住率拖到任意值：活动量效应会剧烈变化，<b>强度改善率始终落在 8.8–9.4% 之间</b>（当前 <span id="invGain">9.1%</span>）。这就是"低入住率换绿色评分"这条路被堵死的地方。
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel__head">
+          <div class="panel__title">05 / 核证与口径</div>
+          <span class="tag tag--dark">GKM-01 v2.0</span>
+        </div>
+        <div class="kv kv--dark">
+          <div class="kv__row"><span class="kv__k">历史常态</span><span>按近 12 个月同类型日的历史均值，反映"本来会怎样"。</span></div>
+          <div class="kv__row"><span class="kv__k">校正 BAU</span><span>把历史常态按<strong>当日实际入住率</strong>换算：客人少，期望用电也少。</span></div>
+          <div class="kv__row"><span class="kv__k">可核证</span><span>只有实测低于校正 BAU 的 94%（P10 置信下界）的部分才计入。</span></div>
+          <div class="kv__row"><span class="kv__k">年度外推</span><span>按工作日 250 天、周末 96 天、公众假期 19 天分别加权。</span></div>
+        </div>
+        <div class="caveat" style="margin-top:16px">
+          概念模型，不构成审计结论。排放因子与电价取参考值，实际核证以年度官方披露与第三方复核为准。
+        </div>
+      </div>
+    </div>
+
+    <!-- 凭证 + 金融 -->
+    <div class="grid g2" style="margin-top:16px;gap:16px">
+      <div class="panel">
+        <div class="panel__head">
+          <div class="panel__title">06 / 减排凭证</div>
+          <span class="tier-badge" id="certTier">稳健</span>
+        </div>
+        <div class="cert-wrap">
+          <div class="cert" id="cert">
+            <div class="cert__head">
+              <div class="cert__brand">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                  <circle cx="12" cy="12" r="7.2" fill="none" stroke="#0b5741" stroke-width="2.4"/>
+                  <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+                  <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="#0b5741" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+                <div><b>绿钥</b><span>GREENKEY · MACAU</span></div>
+              </div>
+              <div class="cert__no">
+                NO. <span id="certNo">GK-MO-2026-30700</span><br>
+                ISSUED 2026-10-31
+              </div>
+            </div>
+            <div class="cert__t">避免能源使用量核证</div>
+            <div class="cert__sub">Verified Avoided Energy · Scope 2 · 运营归因（OAR）</div>
+            <div class="cert__figure">
+              <div><b><span id="certKwh">2,827</span><small>kWh</small></b><span>窗口内已核证避免用电</span></div>
+              <div><b><span id="certTco2">1.41</span><small>t</small></b><span>tCO₂e 避免排放</span></div>
+            </div>
+            <dl class="cert__grid">
+              <div><dt>核证主体</dt><dd id="certEntity">精品酒店 · 40 间客房</dd></div>
+              <div><dt>核证期间</dt><dd id="certPeriod">2026-09-21 → 2026-10-18</dd></div>
+              <div><dt>核算边界</dt><dd>外购电力 · 门店</dd></div>
+              <div><dt>强度改善</dt><dd id="certGain">−9.1% / 间夜</dd></div>
+              <div><dt>置信等级</dt><dd id="certConf">A · 四源齐备</dd></div>
+              <div><dt>方法学</dt><dd>GKM-01 v2.0</dd></div>
+            </dl>
+            <div class="cert__foot">
+              <span>SHA-256 · <span id="certHash">f8a71ada…84f4</span></span>
+              <span>verify.greenkey.mo</span>
+            </div>
+          </div>
+        </div>
+        <div class="cert-actions">
+          <button class="btn btn--mint btn--sm" id="btnPrint">打印 / 存为 PDF</button>
+          <button class="btn btn--sm" id="btnCopy" style="--bg:transparent;--bd:var(--dk-line-2);--fg:#e9f5f0">复制验证链接</button>
+          <button class="btn btn--sm" id="btnReset" style="--bg:transparent;--bd:var(--dk-line-2);--fg:#e9f5f0">重置</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel__head">
+          <div class="panel__title">07 / 绿色金融测算</div>
+          <span class="tag tag--dark">MOP</span>
+        </div>
+        <div class="gauge-wrap" style="margin-bottom:18px">
+          <svg class="gauge" id="gaugeSvg" viewBox="0 0 150 100" role="img" aria-label="绿信分仪表"></svg>
+          <div class="gauge-legend">
+            <div>强度表现 <b id="p1">0.506</b></div>
+            <div>持续性 <b id="p2">0.500</b></div>
+            <div>数据质量 <b id="p3">1.000</b></div>
+            <div>治理披露 <b id="p4">0.600</b></div>
+          </div>
+        </div>
+        <div class="fin-row"><span>年节省电费（可核证现金流）</span><b id="finCash">MOP 48,143</b></div>
+        <div class="fin-row"><span>绿信分档位利率优惠</span><b id="finRate">−1.4 pp</b></div>
+        <div class="fin-row"><span>能效现金流可支撑授信</span><b id="finLoan">MOP 137,000</b></div>
+        <div class="fin-row"><span>叠加政府信用保证后</span><b id="finGuar">MOP 410,000</b></div>
+        <div class="fin-row"><span>三年利息节省（估算）</span><b id="finInterest">MOP 17,220</b></div>
+        <div class="fin-row fin-row--total"><span>首年企业净收益</span><b id="finTotal">MOP 65,363</b></div>
+        <div class="caveat" style="margin-top:16px">
+          实际额度与利率由合作银行依据其绿色信贷政策独立审批。本页数字用于说明"可核证强度改善 → 现金流 → 金融条件"的传导路径。
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+          <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+          <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text"><strong style="color:#f2f8f5">绿钥</strong><em style="color:#8ba69d">GreenKey</em></span>
+      </a>
+      <p class="footer__desc">为澳门持牌小型酒店、经济型酒店、青年旅舍与小餐饮设计的运营级碳效核算平台。</p>
+    </div>
+    <div>
+      <h5>方案</h5>
+      <ul>
+        <li><a href="platform.html">四层架构</a></li>
+        <li><a href="demo.html">交互演示</a></li>
+        <li><a href="methodology.html">方法学 GKM-01</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>论证</h5>
+      <ul>
+        <li><a href="problem.html">问题与市场</a></li>
+        <li><a href="impact.html">实施与影响</a></li>
+        <li><a href="business.html">可扩展性</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>联系</h5>
+      <ul>
+        <li><a href="mailto:hello@greenkey.mo">hello@greenkey.mo</a></li>
+        <li><span class="small muted">澳门南湾大马路 1 号</span></li>
+        <li><span class="small muted">概念提案 · 非实际运营主体</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <span>© <span data-year>2026</span> 绿钥 GreenKey · 商业案例竞赛概念提案</span>
+    <span>本站数据基于公开参数与自建模型；示例企业为虚构，用于方法演示。</span>
+  </div>
+</footer>
+
+<script src="assets/model.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/demo.js"></script>
+</body>
+</html>
