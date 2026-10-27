@@ -9,8 +9,8 @@
   "use strict";
 
   /* ---------- 常量 ---------- */
-  var EF = 0.5; // kgCO2e / kWh（澳门电网参考值，按核证年度更新）
-  var TARIFF = 1.28; // MOP / kWh
+  var EF = 0.4403; // kgCO2e / kWh（广东省 2022 年电力平均因子，澳门自广东输入电力，保守替代）
+  var TARIFF = 1.15; // MOP / kWh（商业电价估算，方案 8.2）
   var N_DAYS = 28; // 观察窗口：28 个计费日
   var START = new Date(2026, 8, 21); // 2026-09-21（周一）
 
@@ -294,6 +294,13 @@
     var baseEffH = 1 - baseKeepH;
 
     var days = [];
+    /* 能耗标定：使 40 房精品酒店年耗电 ≈ 200,000 kWh（5,000 kWh/间/年，见方案 8.1）
+       措施效果标定：使可核证节能率落在方案 8.1 的 15–20% 区间 */
+    var ESCALE = 0.464, MSCALE = 1.45;
+    var amp = function (e, k) { return 1 - Math.pow(Math.max(0, 1 - e), k); };
+    baseEffWd = amp(baseEffWd, MSCALE);
+    unitEff = amp(unitEff, MSCALE);
+    baseEffH = amp(baseEffH, MSCALE);
     var sums = {
       workday: { exp: 0, bau: 0, act: 0, oar: 0, act_eff: 0, n: 0, units: 0 },
       weekend: { exp: 0, bau: 0, act: 0, oar: 0, act_eff: 0, n: 0, units: 0 },
@@ -308,10 +315,12 @@
       var units = cap * occ * (1 + noise);
       var expUnits = cap * cfg.norm[c.type]; // 历史常态（不校正当日入住率）
       var W = c.weather;
-      var expected = cfg.base * W + expUnits * cfg.unitKwh * W;
-      var bau = cfg.base * W + units * cfg.unitKwh * W;
+      var BASEW = cfg.base * ESCALE * W;
+      var UNITW = cfg.unitKwh * ESCALE * W;
+      var expected = BASEW + expUnits * UNITW;
+      var bau = BASEW + units * UNITW;
       var bEff = c.type === "workday" ? baseEffWd : baseEffH;
-      var act = cfg.base * W * (1 - bEff) + units * cfg.unitKwh * W * (1 - unitEff);
+      var act = BASEW * (1 - bEff) + units * UNITW * (1 - unitEff);
       var p10 = bau * 0.94;
       var credited = act < p10;
       var attr = credited ? bau - act : 0;

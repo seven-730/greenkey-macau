@@ -152,7 +152,7 @@
         </div>
         <div class="stack__row">
           <div class="stack__label">L3 凭证</div>
-          <div class="stack__body"><span class="is-key">强度归因引擎</span><span>置信分级</span><span>证书签发</span><span>第三方复核</span></div>
+          <div class="stack__body"><span class="is-key">强度归因引擎</span><span>置信分级</span><span>证据包输出</span><span>第三方签发</span></div>
         </div>
         <div class="stack__row">
           <div class="stack__label">L4 金融</div>
@@ -238,8 +238,8 @@
       </div>
 
       <div class="callout" style="margin-top:20px" id="adjCallout">
-        <b>校正开启：</b>可核证 <b>2,827 kWh</b>，另有 2,126 kWh 被识别为活动量效应并排除。
-        关掉校正，可核证量会跳到 4,952 kWh——多出来的 75%，全部来自客人变少。
+        <b>校正开启：</b>可核证 <b>1,851 kWh</b>，另有 986 kWh 被识别为活动量效应并排除。
+        关掉校正，可核证量会跳到 2,838 kWh——多出来的 75%，全部来自客人变少。
       </div>
 
       <div class="split" style="margin-top:32px">
@@ -580,10 +580,10 @@
     btn.setAttribute("aria-pressed", adjusted ? "true" : "false");
     btn.textContent = "入住率校正：" + (adjusted ? "开" : "关");
     if (adjusted) {
-      callout.innerHTML = "<b>校正开启：</b>可核证 <b>2,827 kWh</b>，另有 2,126 kWh 被识别为活动量效应并排除。关掉校正，可核证量会跳到 4,952 kWh——多出来的 75%，全部来自客人变少。";
+      callout.innerHTML = "<b>校正开启：</b>可核证 <b>1,851 kWh</b>，另有 986 kWh 被识别为活动量效应并排除。关掉校正，可核证量会跳到 2,838 kWh——多出来的 75%，全部来自客人变少。";
       draw(base);
     } else {
-      callout.innerHTML = "<b>校正关闭：</b>可核证量变成 <b>4,952 kWh</b>。这家店什么都没多做，数字却涨了 75%——因为它把\"客人变少\"记成了自己的功劳。这就是为什么必须校正。";
+      callout.innerHTML = "<b>校正关闭：</b>可核证量变成 <b>2,838 kWh</b>。这家店什么都没多做，数字却涨了 75%——因为它把\"客人变少\"记成了自己的功劳。这就是为什么必须校正。";
       draw(naive);
     }
   });
