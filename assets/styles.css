@@ -1455,6 +1455,78 @@ input[type="range"]::-moz-range-thumb {
 }
 @media (max-width: 620px) { .faq__body { padding-left: 0; } }
 
+/* ---------- 22c. Ledger / recalc ---------------------------------------- */
+.ledger { border-top: 1px solid var(--line); }
+.ledger__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3px 12px;
+  width: 100%;
+  padding: 13px 14px 13px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.ledger__row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: transparent;
+  transition: background 0.18s;
+}
+.ledger__row:hover { background: rgba(255, 255, 255, 0.035); }
+.ledger__row.is-on { background: rgba(43, 232, 166, 0.06); }
+.ledger__row.is-on::before { background: var(--mint); box-shadow: 0 0 12px rgba(43, 232, 166, 0.85); }
+.ledger__no {
+  grid-column: 1;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--muted-2);
+}
+.ledger__kwh {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--mint);
+  text-align: right;
+  white-space: nowrap;
+}
+.ledger__name { grid-column: 1 / -1; font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.ledger__meta { grid-column: 1 / -1; font-size: 10px; color: var(--muted); font-family: var(--f-mono); }
+.ledger__row.is-on .ledger__name { color: var(--mint); }
+
+.recalc {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.35);
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  line-height: 2;
+  color: var(--muted);
+}
+.recalc > div { display: flex; justify-content: space-between; gap: 14px; animation: recalcIn 0.28s ease-out both; }
+.recalc > div b { color: var(--ink-2); font-weight: 500; }
+.recalc .recalc__result {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line-2);
+  font-size: 11px;
+}
+@keyframes recalcIn {
+  from { opacity: 0; transform: translateX(-5px); }
+  to { opacity: 1; transform: none; }
+}
+.recalc + .kv { margin-top: 20px; }
+
 /* ---------- 23. Doc layout ----------------------------------------------- */
 .doc-grid { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
 .doc-toc { position: sticky; top: 96px; }

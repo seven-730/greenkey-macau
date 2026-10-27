@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>核证链 · 第三方可复算的凭证台账 | 绿钥 GreenKey</title>
+<meta name="description" content="每一张绿钥凭证都公开全部输入：原始读数、基线参数、归因明细与数据指纹。任何人可以在页面上重新算一遍，逐项比对。">
+<meta name="theme-color" content="#05090b">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="绿钥 GreenKey">
+<meta property="og:locale" content="zh_Hans">
+<meta property="og:locale:alternate" content="en">
+<meta property="og:title" content="核证链 · 第三方可复算的凭证台账 | 绿钥 GreenKey">
+<meta property="og:description" content="每一张绿钥凭证都公开全部输入，任何人可以在页面上重新算一遍，逐项比对。">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070d10'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='%232be8a6' stroke-width='2.4'/%3E%3Cpath d='M17 17l9 9M22 22l-2.4 2.4M25 25l-2.4 2.4' stroke='%232be8a6' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/boot.css">
+<noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}</style></noscript>
+<script>(function () {
+  var d = document.documentElement;
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.get("lang") === "en") localStorage.setItem("gk_lang", "en");
+    if (p.get("lang") === "zh") localStorage.setItem("gk_lang", "zh");
+    if (localStorage.getItem("gk_lang") === "en") {
+      d.classList.add("i18n-pending");
+      setTimeout(function () { d.classList.remove("i18n-pending"); }, 3000);
+    }
+  } catch (e) {}
+  try {
+    var q = new URLSearchParams(location.search);
+    if (q.get("boot") === "0") return;
+    var seen = false;
+    try { seen = sessionStorage.getItem("gk_boot") === "1"; } catch (e) {}
+    if (seen && q.get("boot") !== "1") return;
+    d.classList.add("boot");
+    setTimeout(function () { if (!window.__GK_BOOT_DONE__) d.classList.remove("boot"); }, 3500);
+  } catch (e) {}
+})();</script>
+<script src="assets/lang/en-1.js" defer></script>
+<script src="assets/lang/en-2.js" defer></script>
+<script src="assets/lang/en-3.js" defer></script>
+<script src="assets/lang/en-4.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/boot.js" defer></script>
+</head>
+<body>
+<div class="progress"><div class="progress__bar"></div></div>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="index.html" aria-label="绿钥 GreenKey 首页">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+        <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+        <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="主导航">
+      <a href="index.html">摘要</a>
+      <a href="problem.html">问题</a>
+      <a href="platform.html">方案</a>
+      <a href="demo.html">演示</a>
+      <a href="verify.html" aria-current="page">核证</a>
+      <a href="impact.html">实施</a>
+      <a href="business.html">扩展</a>
+      <a href="methodology.html">方法学</a>
+      <a href="team.html">团队</a>
+    </nav>
+    <a class="btn btn--sm nav__cta" href="demo.html">试算我的门店 <span class="arw">→</span></a>
+    <button class="nav__toggle" aria-label="展开菜单" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="crumbs"><a href="index.html">摘要</a> <span>/</span> <span>核证链</span></div>
+    <div class="grid g-7-5" style="align-items:end">
+      <div>
+        <span class="eyebrow">核证链 · 09</span>
+        <h1 class="h1" style="max-width:20ch">每一张凭证，<br>都能被<em>重新算一遍</em>。</h1>
+      </div>
+      <div>
+        <p class="lede">
+          银行不需要相信我们，只需要相信数字。下面六张已签发凭证公开了全部输入——
+          选一张，按下复算，看它是否分毫不差。这不是承诺，是当场就能做的检验。
+        </p>
+        <div class="page-head__meta">
+          <span>已签发 <b>6 张</b></span>
+          <span>方法学 <b>GKM-01 v2.0</b></span>
+          <span>复核覆盖 <b>100%</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="grid g-5-7" style="gap:clamp(20px,3vw,40px);align-items:start">
+
+      <!-- 台账 -->
+      <div>
+        <div class="panel__head" style="margin-bottom:12px">
+          <div class="panel__title" style="color:var(--muted)">已签发台账</div>
+          <span class="tiny mono" style="color:var(--muted)">按签发时间倒序</span>
+        </div>
+        <div class="ledger" id="ledger"></div>
+        <p class="note" style="margin-top:16px">
+          台账只允许追加。任何状态变更（复核、额度调整、撤回）都会新增一条记录，旧记录不删除。
+        </p>
+      </div>
+
+      <!-- 详情 -->
+      <div class="panel" id="detail" style="min-height:420px">
+        <div class="panel__head">
+          <div class="panel__title" style="color:var(--muted)"><span class="dot"></span> 凭证详情</div>
+          <span class="tier-badge" id="dtTier">—</span>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start">
+          <div>
+            <div class="mono" style="font-size:11px;letter-spacing:.12em;color:var(--muted)" id="dtNo">GK-MO-2026-00000</div>
+            <h2 class="h3" style="margin-top:6px" id="dtName">—</h2>
+          </div>
+          <div style="text-align:right">
+            <div class="tiny muted">核证期间</div>
+            <div class="mono" style="font-size:11px;color:var(--ink-2)" id="dtPeriod">—</div>
+          </div>
+        </div>
+
+        <div class="kpis" style="margin-top:18px">
+          <div class="kpi kpi--hi"><div class="kpi__label">已核证避免用电</div><div class="kpi__num"><span id="dtKwh">0</span><small>kWh</small></div></div>
+          <div class="kpi"><div class="kpi__label">避免排放</div><div class="kpi__num"><span id="dtTco2">0</span><small>tCO₂e</small></div></div>
+          <div class="kpi"><div class="kpi__label">强度改善</div><div class="kpi__num"><span id="dtGain">0</span><small>%</small></div></div>
+          <div class="kpi"><div class="kpi__label">绿信分</div><div class="kpi__num"><span id="dtScore">0</span><small>/1000</small></div></div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;align-items:center">
+          <button class="btn btn--sm" id="btnRecalc">重新计算并比对</button>
+          <span class="tiny mono" id="recalcStatus" style="color:var(--muted)">尚未复算</span>
+        </div>
+
+        <div class="recalc" id="recalcLog" hidden></div>
+
+        <div class="kv kv--dark" style="margin-top:20px" id="dtParams"></div>
+
+        <details style="margin-top:16px">
+          <summary class="tiny mono" style="color:var(--mint);cursor:pointer;letter-spacing:.1em">展开逐日明细（28 行）</summary>
+          <div class="table-wrap" style="margin-top:12px">
+            <table class="mini-tbl" id="dtDays">
+              <thead><tr><th>日期</th><th>日型</th><th>历史常态</th><th>校正 BAU</th><th>实测</th><th>计入</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+
+        <div style="margin-top:18px">
+          <div class="tiny mono" style="color:var(--muted);letter-spacing:.1em;margin-bottom:10px">状态记录（只增不删）</div>
+          <div class="tl" id="dtAudit" style="padding-left:20px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 为什么可信 -->
+<section class="section" style="background:rgba(255,255,255,.018);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="eyebrow">为什么这样设计</span>
+      <h2 class="h2">我们把"被质疑"做成了<em>功能</em>。</h2>
+    </div>
+    <div class="grid g3" data-reveal>
+      <div class="card">
+        <span class="card__idx">01</span>
+        <h3 class="h3" style="font-size:18px">输入全部公开</h3>
+        <p class="small muted" style="margin-top:8px">原始读数、日历、基线参数、归因规则版本——任何一项都不藏。你看到的数字，和你复算出的数字必须是同一个。</p>
+      </div>
+      <div class="card">
+        <span class="card__idx">02</span>
+        <h3 class="h3" style="font-size:18px">算法确定性</h3>
+        <p class="small muted" style="margin-top:8px">同一份输入只对应一个输出，没有随机种子，没有"人工判断"的余量。哈希对不上，就是算错了。</p>
+      </div>
+      <div class="card">
+        <span class="card__idx">03</span>
+        <h3 class="h3" style="font-size:18px">记录不可覆盖</h3>
+        <p class="small muted" style="margin-top:8px">复核、降级、撤回都以追加方式写入。银行调阅时看到的是完整历史，不是被整理过的结论。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section band section--tight">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap">
+    <div>
+      <span class="eyebrow">自己算一次</span>
+      <h2 class="h2" style="margin-bottom:10px">改参数，凭证立刻变。</h2>
+      <p class="lede" style="max-width:52ch">核证链是"事后可查"，交互演示是"事前可调"。两个一起看，才算把模型看透。</p>
+    </div>
+    <a class="btn btn--mint btn--lg" href="demo.html">打开交互演示 <span class="arw">→</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <a class="brand" href="index.html">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" style="color:#2be8a6">
+          <circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+          <circle cx="12" cy="12" r="2.4" fill="#1f9d76"/>
+          <path d="M16.9 16.9 26 26M21.8 21.8l-2.3 2.3M24.6 24.6l-2.3 2.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text"><strong>绿钥</strong><em>GreenKey</em></span>
+      </a>
+      <p class="footer__desc">为澳门持牌小型酒店、经济型酒店、青年旅舍与小餐饮设计的运营级碳效核算与绿色金融平台。</p>
+    </div>
+    <div>
+      <h5>方案</h5>
+      <ul>
+        <li><a href="platform.html">四层架构</a></li>
+        <li><a href="demo.html">交互演示</a></li>
+        <li><a href="methodology.html">方法学 GKM-01</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>论证</h5>
+      <ul>
+        <li><a href="problem.html">问题与市场</a></li>
+        <li><a href="impact.html">实施与影响</a></li>
+        <li><a href="business.html">可扩展性</a></li>
+        <li><a href="team.html">团队与问答</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>联系</h5>
+      <ul>
+        <li><a href="mailto:hello@greenkey.mo">hello@greenkey.mo</a></li>
+        <li><span class="small muted">澳门南湾大马路 1 号</span></li>
+        <li><span class="small muted">概念提案 · 非实际运营主体</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <span>© <span data-year>2026</span> 绿钥 GreenKey · 商业案例竞赛概念提案</span>
+    <span>本站数据基于公开参数与自建模型；示例企业为虚构，用于方法演示。</span>
+  </div>
+</footer>
+
+<script src="assets/model.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/verify.js"></script>
+</body>
+</html>
