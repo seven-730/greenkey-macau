@@ -312,6 +312,108 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * 封面：用 28 日用电量堆出的城市天际线
+   * ------------------------------------------------------------------ */
+  function skyline(svg, r, opts) {
+    var W = 1600, H = 460;
+    var base = H * 0.84;
+    var days = r.days;
+    var n = days.length;
+    var maxKwh = 0;
+    days.forEach(function (d) { if (d.act > maxKwh) maxKwh = d.act; });
+    var unit = (base * 0.70) / maxKwh;
+
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.setAttribute("preserveAspectRatio", "xMidYMax meet");
+
+    var gid = "skyG" + Math.random().toString(36).slice(2, 7);
+    var defs = el("defs");
+    var lg = el("linearGradient", { id: gid, x1: 0, y1: 0, x2: 0, y2: 1 });
+    lg.appendChild(el("stop", { offset: "0%", "stop-color": "#2be8a6", "stop-opacity": 0.26 }));
+    lg.appendChild(el("stop", { offset: "55%", "stop-color": "#2be8a6", "stop-opacity": 0.05 }));
+    lg.appendChild(el("stop", { offset: "100%", "stop-color": "#2be8a6", "stop-opacity": 0 }));
+    defs.appendChild(lg);
+    var gid2 = "skyM" + Math.random().toString(36).slice(2, 7);
+    var lg2 = el("linearGradient", { id: gid2, x1: 0, y1: 0, x2: 0, y2: 1 });
+    lg2.appendChild(el("stop", { offset: "0%", "stop-color": "#fff", "stop-opacity": 0.8 }));
+    lg2.appendChild(el("stop", { offset: "100%", "stop-color": "#fff", "stop-opacity": 0 }));
+    defs.appendChild(lg2);
+    var mask = el("mask", { id: gid2 + "m" });
+    mask.appendChild(el("rect", { x: 0, y: base, width: W, height: H - base, fill: "url(#" + gid2 + ")" }));
+    defs.appendChild(mask);
+    svg.appendChild(defs);
+
+    svg.appendChild(el("line", { x1: 0, y1: base, x2: W, y2: base, stroke: "rgba(150,255,220,0.2)", "stroke-width": 1 }));
+
+    /* 每天拆成两栋，形成街区 */
+    var slots = n * 2;
+    var gap = 6;
+    var bw = (W - gap * (slots - 1)) / slots;
+    var builds = [];
+    days.forEach(function (d, i) {
+      var jit = [0.82, 1];
+      for (var k = 0; k < 2; k++) {
+        builds.push({ d: d, h: Math.max(12, d.act * jit[k] * unit), i: i * 2 + k });
+      }
+    });
+
+    builds.forEach(function (b, idx) {
+      var x = idx * (bw + gap);
+      var h = b.h;
+      var y = base - h;
+      var holiday = b.d.type !== "workday";
+      var stroke = holiday ? "rgba(233,179,79,0.55)" : "rgba(43,232,166,0.55)";
+      var roof = holiday ? "rgba(233,179,79,0.9)" : "rgba(75,247,185,0.9)";
+      svg.appendChild(el("rect", {
+        x: x, y: y, width: bw, height: h, fill: "url(#" + gid + ")",
+        stroke: stroke, "stroke-width": 1
+      }));
+      svg.appendChild(el("line", { x1: x, y1: y + 0.5, x2: x + bw, y2: y + 0.5, stroke: roof, "stroke-width": 1.5 }));
+      var dots = h > 200 ? 4 : h > 120 ? 3 : 2;
+      for (var k2 = 0; k2 < dots; k2++) {
+        var wy = y + 14 + k2 * 15;
+        if (wy > base - 10) break;
+        svg.appendChild(el("rect", {
+          x: x + bw * 0.32, y: wy, width: Math.max(1.8, bw * 0.2), height: 2.5,
+          fill: holiday ? "rgba(233,179,79,0.42)" : "rgba(43,232,166,0.4)"
+        }));
+      }
+      if (idx === 13 || idx === 34 || idx === 49) {
+        svg.appendChild(el("line", { x1: x + bw / 2, y1: y, x2: x + bw / 2, y2: y - 22, stroke: "rgba(75,247,185,0.6)", "stroke-width": 1 }));
+        svg.appendChild(el("circle", { cx: x + bw / 2, cy: y - 23, r: 1.6, fill: "#4bf7b9" }));
+      }
+    });
+
+    /* 澳门旅游塔 */
+    var tx = W * 0.78;
+    var deckY = base - H * 0.60;
+    var topY = base - H * 0.73;
+    svg.appendChild(el("path", {
+      d: "M" + (tx - 8) + "," + base + " L" + (tx - 3.5) + "," + (deckY + 6) +
+        " L" + (tx + 3.5) + "," + (deckY + 6) + " L" + (tx + 8) + "," + base + " Z",
+      fill: "#05090b", stroke: "rgba(43,232,166,0.9)", "stroke-width": 1.3
+    }));
+    svg.appendChild(el("rect", {
+      x: tx - 12, y: deckY - 4, width: 24, height: 11, rx: 3,
+      fill: "#05090b", stroke: "rgba(43,232,166,0.9)", "stroke-width": 1.3
+    }));
+    svg.appendChild(el("line", { x1: tx, y1: deckY - 4, x2: tx, y2: topY, stroke: "rgba(43,232,166,0.7)", "stroke-width": 1.2 }));
+    svg.appendChild(el("circle", { cx: tx, cy: topY - 2, r: 2.2, fill: "#4bf7b9" }));
+
+    /* 水面倒影 */
+    var ref = el("g", { opacity: 0.2, mask: "url(#" + gid2 + "m)" });
+    builds.forEach(function (b, idx) {
+      var x = idx * (bw + gap);
+      ref.appendChild(el("rect", {
+        x: x, y: base + 2, width: bw, height: b.h * 0.45,
+        fill: b.d.type === "workday" ? "rgba(43,232,166,0.5)" : "rgba(233,179,79,0.5)"
+      }));
+    });
+    svg.appendChild(ref);
+  }
+
+  /* ------------------------------------------------------------------ *
    * 通用
    * ------------------------------------------------------------------ */
   function countUp(node, target, opts) {
@@ -434,6 +536,7 @@
 
   window.GKApp = {
     chart: dayChart,
+    skyline: skyline,
     spark: sparkline,
     gauge: gauge,
     fmt: fmt,

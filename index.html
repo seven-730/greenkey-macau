@@ -69,6 +69,7 @@
       <a href="impact.html">实施</a>
       <a href="business.html">扩展</a>
       <a href="methodology.html">方法学</a>
+      <a href="team.html">团队</a>
     </nav>
     <a class="btn btn--sm nav__cta" href="demo.html">试算我的门店 <span class="arw">→</span></a>
     <button class="nav__toggle" aria-label="展开菜单" aria-expanded="false" aria-controls="navLinks"><span></span></button>
@@ -77,31 +78,61 @@
 
 <main>
 
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero__kicker">
+<!-- ================= COVER ================= -->
+<section class="cover">
+  <div class="wrap cover__inner">
+    <div class="cover__kicker">
       <span class="tag tag--mint"><span class="dot"></span> 澳门 · 文化旅游 · 中小微</span>
       <span class="tag tag--outline">可持续能源 / 能源消耗</span>
       <span class="tag tag--gold">未被核算的碳减排潜力</span>
     </div>
-    <h1 class="h1" style="max-width:20ch">绿色不该由发票定义，<br>而该由<em>用电曲线</em>定义。</h1>
-    <p class="hero__sub">
+    <h1 class="h1">绿色不该由发票定义，<br>而该由<em>用电曲线</em>定义。</h1>
+    <p class="cover__sub">
       澳门有 1,700–2,200 家持牌小型酒店与小餐饮。它们在普通工作日关闭楼层、缩短营业、降低负荷——
       减排真实发生，却因为没有一张设备发票，被绿色信贷与贴息计划挡在门外。绿钥用 AI 双基线，把这部分减排核证成可授信的资产。
     </p>
-    <div class="hero__cta">
+    <div class="cover__cta">
       <a class="btn btn--lg" href="demo.html">进入交互演示 <span class="arw">→</span></a>
       <a class="btn btn--ghost btn--lg" href="#summary">阅读执行摘要</a>
     </div>
-    <div class="hero__facts">
-      <div class="hero__fact"><b class="num" data-en="34.93<span style=&quot;font-size:15px&quot;> M</span>">3,493<span style="font-size:15px"> 万</span></b><span>2024 年访澳旅客（同比 +23.8%）</span></div>
-      <div class="hero__fact"><b class="num">1,700–2,200</b><span>被"发票门槛"排除在绿色金融之外</span></div>
-      <div class="hero__fact"><b class="num" data-en="MOP 5<span style=&quot;font-size:15px&quot;> M</span>"><span style="font-size:15px">MOP </span>500<span style="font-size:15px"> 万</span></b><span>现行贴息上限，却只认资本开支</span></div>
+    <div class="cover__stats">
+      <div class="cover__stat">
+        <b data-en="34.93<span style=&quot;font-size:.55em&quot;> M</span>">3,493<span style="font-size:.55em"> 万</span></b>
+        <span>2024 年访澳旅客（同比 +23.8%）</span>
+      </div>
+      <div class="cover__stat">
+        <b>1,700–2,200</b>
+        <span>被“发票门槛”排除在绿色金融之外</span>
+      </div>
+      <div class="cover__stat">
+        <b data-en="MOP 5<span style=&quot;font-size:.55em&quot;> M</span>"><span style="font-size:.55em">MOP </span>500<span style="font-size:.55em"> 万</span></b>
+        <span>现行贴息上限，却只认资本开支</span>
+      </div>
+      <div class="cover__stat">
+        <b>0</b>
+        <span>本地认可“运营性减排”的绿色信贷产品</span>
+      </div>
     </div>
+  </div>
+  <svg id="skyline" class="cover__sky" role="img" aria-label="以 28 日实际用电量构成的城市天际线"></svg>
+</section>
 
-    <!-- 证据面板 -->
-    <div class="hero-panel" data-reveal>
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span class="ticker__item">澳门 22°11′N 113°32′E <i></i> <b>持牌酒店 · 经济型酒店 · 青年旅舍 · 小餐饮</b></span>
+    <span class="ticker__item">工作日入住率 <b>常低于 40%</b> <i></i> 公众假期接近满房</span>
+    <span class="ticker__item">单店年可核证减排 <b>5–30 tCO₂e</b></span>
+    <span class="ticker__item">工作日节能 <b>10–30%</b> <i></i> 但从未被计入任何绿色资产</span>
+    <span class="ticker__item">贴息上限 <b>MOP 500 万 / 3 年</b> <i></i> 前提是一叠发票</span>
+    <span class="ticker__item">只认强度 <b>不认低入住率</b></span>
+  </div>
+</div>
+
+<!-- ================= 证据面板 ================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="hero-panel" data-reveal style="margin-top:0">
       <div class="hero-panel__head">
         <span class="hero-panel__title">一间 40 房精品酒店 · 近 28 个计费日</span>
         <span class="hero-panel__meta">
@@ -128,18 +159,6 @@
     </div>
   </div>
 </section>
-
-<!-- ================= TICKER ================= -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker__track">
-    <span class="ticker__item">澳门 22°11′N 113°32′E <i></i> <b>持牌酒店 · 经济型酒店 · 青年旅舍 · 小餐饮</b></span>
-    <span class="ticker__item">工作日入住率 <b>常低于 40%</b> <i></i> 公众假期接近满房</span>
-    <span class="ticker__item">单店年可核证减排 <b>5–30 tCO₂e</b></span>
-    <span class="ticker__item">工作日节能 <b>10–30%</b> <i></i> 但从未被计入任何绿色资产</span>
-    <span class="ticker__item">贴息上限 <b>MOP 500 万 / 3 年</b> <i></i> 前提是一叠发票</span>
-    <span class="ticker__item">只认强度 <b>不认低入住率</b></span>
-  </div>
-</div>
 
 <!-- ================= 01 执行摘要 ================= -->
 <section class="section" id="summary">
@@ -402,6 +421,7 @@
         <li><a href="problem.html">问题与市场</a></li>
         <li><a href="impact.html">实施与影响</a></li>
         <li><a href="business.html">可扩展性</a></li>
+        <li><a href="team.html">团队与问答</a></li>
       </ul>
     </div>
     <div>
@@ -425,8 +445,10 @@
 (function () {
   var r = GKModel.compute({ type: "boutique", measures: ["floor", "hours", "hvac", "standby"] });
   var svg = document.getElementById("heroChart");
+  var sky = document.getElementById("skyline");
   function draw() {
     GKApp.chart(svg, r, { theme: "light", height: 300, holidayLabel: "国 庆 黄 金 周" });
+    GKApp.skyline(sky, r);
     if (window.GKI18N) window.GKI18N.apply(document.body);
   }
   draw();
